@@ -1,7 +1,5 @@
 import "./TrustedInProduction.css";
-
-import React, { useEffect, useState } from "react";
-// import { HorizontalTicker } from "react-infinite-ticker";
+import React from "react";
 import image1 from "../../../images/b1.jpg";
 import image2 from "../../../images/b2.jpg";
 import image3 from "../../../images/b3.jpg";
@@ -17,15 +15,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import './TrustedInProduction.module.css';
-
 // import required modules
 import { Autoplay, Navigation } from "swiper";
 
 const TrustedInProduction = () => {
   return (
-    <>
-      <h1 className="text-5xl font-bold custom">Trusted in Production by</h1>
+    <div className="lg:my-12 my-8">
+      <h1 className="text-5xl font-bold text-center">Trusted in Production by</h1>
 
       <Swiper
         slidesPerView={3}
@@ -48,7 +44,7 @@ const TrustedInProduction = () => {
         <SwiperSlide className="swiper-slide-custom"><img src={image5} alt="" /></SwiperSlide>
         <SwiperSlide className="swiper-slide-custom"><img src={image6} alt="" /></SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
 

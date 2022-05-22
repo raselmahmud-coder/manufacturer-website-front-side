@@ -9,6 +9,7 @@ const Reviews = () => {
     <div>
       <Swiper
         navigation
+        loop={true}
         pagination={{ clickable: true }}
         effect="coverflow"
         coverflowEffect={{
@@ -20,47 +21,42 @@ const Reviews = () => {
         }}
         slidesPerView={2}
         centeredSlides
-        style={{ height: "400px" }}
+        style={{ height: "400px", padding:"80px 0px" }}
       >
         <SwiperSlide
           style={{
-            backgroundImage:
-              "url(https://swiperjs.com/demos/images/nature-1.jpg)", width:"350px"
+          width:"400px", backgroundColor:"rosybrown"
           }}
         >
-          Slide 1
+         <h1 className="text-3xl text-orange-400 text-center"> Slide 1</h1>
         </SwiperSlide>
         <SwiperSlide
           style={{
-            backgroundImage:
-              "url(https://swiperjs.com/demos/images/nature-2.jpg)", width:"350px"
+             width:"400px", backgroundColor:"rosybrown"
           }}
         >
-          Slide 2
+         <h1 className="text-3xl text-orange-400 text-center"> Slide 2</h1>
         </SwiperSlide>
         <SwiperSlide
           style={{
-            backgroundImage:
-              "url(https://swiperjs.com/demos/images/nature-3.jpg)", width:"350px"
+             width:"400px", backgroundColor:"rosybrown"
           }}
         >
-          Slide 3
+         <h1 className="text-3xl text-orange-400 text-center"> Slide 3</h1>
         </SwiperSlide>
         <SwiperSlide
           style={{
-            backgroundImage:
-              "url(https://swiperjs.com/demos/images/nature-4.jpg)", width:"350px"
+             width:"400px", backgroundColor:"rosybrown"
           }}
         >
-          Slide 4
+         <h1 className="text-3xl text-orange-400 text-center"> Slide 4</h1>
         </SwiperSlide>
         <SwiperSlide
           style={{
-            backgroundImage:
-              "url(https://swiperjs.com/demos/images/nature-5.jpg)", width:"350px"
+             width:"400px", backgroundColor:"rosybrown"
           }}
         >
-          Slide 5
+         <h1 className="text-3xl text-orange-400 text-center"> Slide 5</h1>
         </SwiperSlide>
 
       </Swiper>

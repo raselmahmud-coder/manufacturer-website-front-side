@@ -1,4 +1,6 @@
 import React from "react";
+import BusinessSummary from "./BusinessSummary/BusinessSummary";
+import DiscountSection from "./DiscountSection/DiscountSection";
 import HeroSection from "./HeroSection/HeroSection";
 import Reviews from "./Reviews/Reviews";
 import ToolsSection from "./ToolsSection/ToolsSection";
@@ -10,8 +12,9 @@ const HomePage = () => {
       <HeroSection />
       <ToolsSection />
       <Reviews />
-      <h1>Hello</h1>
+      <DiscountSection />
       <TrustedInProduction />
+      <BusinessSummary/>
     </>
   );
 };
