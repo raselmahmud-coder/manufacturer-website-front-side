@@ -47,7 +47,7 @@ const NavBarAutoParts = () => {
               {menu}
             </ul>
           </div>
-          <img class="btn btn-ghost normal-case text-xl" src={logo} alt=".." />
+          <img class="rounded bg-slate-200 p-2" src={logo} alt=".." />
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">{menu}</ul>

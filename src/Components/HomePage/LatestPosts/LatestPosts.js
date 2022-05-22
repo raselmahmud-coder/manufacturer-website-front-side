@@ -1,12 +1,14 @@
 import React from "react";
 import { VscDebugStart } from "react-icons/vsc";
 import blog1 from "../../../images/blog-1.jpg";
+import blog2 from "../../../images/blog-2.jpg";
+import blog3 from "../../../images/blog-3.jpg";
 
 const LatestPosts = () => {
   return (
     <>
-      <div className="lg:my-36 my-20">
-        <h1 className="text-5xl uppercase flex items-center justify-center text-lime-700 my-5">
+      <div className="lg:my-24 my-12">
+        <h1 className="text-5xl uppercase flex items-center justify-center text-lime-700 my-8">
           <i className="inline-block">
             <VscDebugStart />
           </i>
@@ -30,7 +32,7 @@ const LatestPosts = () => {
             </button>
           </div>
           <div className="block">
-            <img src={blog1} alt="" />
+            <img src={blog2} alt="" />
             <div className="flex justify-between my-2">
               <p>{new Date().toDateString()} </p>
               <span className="font-bold text-green-300">by Rasel Mahmud</span>
@@ -43,7 +45,7 @@ const LatestPosts = () => {
             </button>
           </div>
           <div className="block">
-            <img src={blog1} alt="" />
+            <img src={blog3} alt="" />
             <div className="flex justify-between my-2">
               <p>{new Date().toDateString()} </p>
               <span className="font-bold text-green-300">by Rasel Mahmud</span>

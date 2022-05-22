@@ -67,6 +67,19 @@ const BusinessSummary = () => {
           <p className="text-3xl font-bold">Feedbacks</p>
         </div>
       </div>
+      <div className="flex justify-around bg:shadow mt-9">
+        <div>
+          <h1 className="text-4xl font-bold">
+            Have any question or want to get free quotes?
+          </h1>
+        </div>
+        <div>
+          <div className="flex">
+            <button className="btn btn-secondary">Request a Quote</button>
+            <button className="btn btn-Primary ml-6">Contact Us</button>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
