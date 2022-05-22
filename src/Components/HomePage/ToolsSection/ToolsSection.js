@@ -4,18 +4,18 @@ const ToolsSection = () => {
   return (
     <>
       <section>
-        <div class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:items-start">
-            <div class="lg:sticky lg:top-4">
+        <div className="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:items-start">
+            <div className="lg:sticky lg:top-4">
               <details
                 open
-                class="overflow-hidden border border-gray-200 rounded"
+                className="overflow-hidden border border-gray-200 rounded"
               >
-                <summary class="flex items-center justify-between px-5 py-3 bg-gray-100 lg:hidden">
-                  <span class="text-sm font-medium">Toggle Filters</span>
+                <summary className="flex items-center justify-between px-5 py-3 bg-gray-100 lg:hidden">
+                  <span className="text-sm font-medium">Toggle Filters</span>
 
                   <svg
-                    class="w-5 h-5"
+                    className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -30,58 +30,58 @@ const ToolsSection = () => {
                   </svg>
                 </summary>
 
-                <form action="" class="border-t border-gray-200 lg:border-t-0">
+                <form action="" className="border-t border-gray-200 lg:border-t-0">
                   <fieldset>
-                    <legend class="block w-full px-5 py-3 text-xs font-medium bg-gray-50">
-                      Type
+                    <legend className="block w-full px-5 py-3 text-xs font-medium bg-gray-500">
+                      Categories
                     </legend>
 
-                    <div class="px-5 py-6 space-y-2">
-                      <div class="flex items-center">
+                    <div className="px-5 py-6 space-y-2">
+                      <div className="flex items-center">
                         <input
-                          id="toy"
+                          id="car-security"
                           type="checkbox"
-                          name="type[toy]"
-                          class="w-5 h-5 border-gray-300 rounded"
+                          name="type[car-security]"
+                          className="w-5 h-5 border-gray-300 rounded"
                         />
 
-                        <label for="toy" class="ml-3 text-sm font-medium">
-                          Toy
+                        <label for="car-security" className="ml-3 text-sm font-medium">
+                          Car Security
                         </label>
                       </div>
 
-                      <div class="flex items-center">
+                      <div className="flex items-center">
                         <input
-                          id="game"
+                          id="car-gadgets"
                           type="checkbox"
-                          name="type[game]"
-                          class="w-5 h-5 border-gray-300 rounded"
+                          name="type[car-gadgets]"
+                          className="w-5 h-5 border-gray-300 rounded"
                         />
 
-                        <label for="game" class="ml-3 text-sm font-medium">
-                          Game
+                        <label for="car-gadgets" className="ml-3 text-sm font-medium">
+                          Car Gadgets
                         </label>
                       </div>
 
-                      <div class="flex items-center">
+                      <div className="flex items-center">
                         <input
-                          id="outdoor"
+                          id="car-gadgets"
                           type="checkbox"
-                          name="type[outdoor]"
-                          class="w-5 h-5 border-gray-300 rounded"
+                          name="type[car-gadgets]"
+                          className="w-5 h-5 border-gray-300 rounded"
                         />
 
-                        <label for="outdoor" class="ml-3 text-sm font-medium">
-                          Outdoor
+                        <label for="car-accessories" className="ml-3 text-sm font-medium">
+                          Car Accessories
                         </label>
                       </div>
 
-                      <div class="pt-2">
+                      <div className="pt-2">
                         <button
                           type="button"
-                          class="text-xs text-gray-500 underline"
+                          className="text-xs text-white underline"
                         >
-                          Reset Type
+                          Reset Categories
                         </button>
                       </div>
                     </div>
@@ -89,80 +89,80 @@ const ToolsSection = () => {
 
                   <div>
                     <fieldset>
-                      <legend class="block w-full px-5 py-3 text-xs font-medium bg-gray-50">
-                        Age
+                      <legend className="block w-full px-5 py-3 text-xs font-medium bg-gray-500">
+                        Price
                       </legend>
 
-                      <div class="px-5 py-6 space-y-2">
-                        <div class="flex items-center">
+                      <div className="px-5 py-6 space-y-2">
+                        <div className="flex items-center">
                           <input
-                            id="3+"
+                            id="99+"
                             type="checkbox"
-                            name="age[3+]"
-                            class="w-5 h-5 border-gray-300 rounded"
+                            name="age[99+]"
+                            className="w-5 h-5 border-gray-300 rounded"
                           />
 
-                          <label for="3+" class="ml-3 text-sm font-medium">
-                            3+
+                          <label for="99+" className="ml-3 text-sm font-medium">
+                            99+
                           </label>
                         </div>
 
-                        <div class="flex items-center">
+                        <div className="flex items-center">
                           <input
-                            id="8+"
+                            id="599+"
                             type="checkbox"
-                            name="age[8+]"
-                            class="w-5 h-5 border-gray-300 rounded"
+                            name="age[599+]"
+                            className="w-5 h-5 border-gray-300 rounded"
                           />
 
-                          <label for="8+" class="ml-3 text-sm font-medium">
-                            8+
+                          <label for="599+" className="ml-3 text-sm font-medium">
+                            599+
                           </label>
                         </div>
 
-                        <div class="flex items-center">
+                        <div className="flex items-center">
                           <input
-                            id="12+"
+                            id="999+"
                             type="checkbox"
-                            name="age[12+]"
-                            class="w-5 h-5 border-gray-300 rounded"
+                            name="age[999+]"
+                            className="w-5 h-5 border-gray-300 rounded"
                           />
 
-                          <label for="12+" class="ml-3 text-sm font-medium">
-                            12+
+                          <label for="999+" className="ml-3 text-sm font-medium">
+                            999+
                           </label>
                         </div>
 
-                        <div class="flex items-center">
+                        <div className="flex items-center">
                           <input
-                            id="16+"
+                            id="1299+"
                             type="checkbox"
-                            name="age[16+]"
-                            class="w-5 h-5 border-gray-300 rounded"
+                            name="age[1299+]"
+                            className="w-5 h-5 border-gray-300 rounded"
                           />
 
-                          <label for="16+" class="ml-3 text-sm font-medium">
-                            16+
+                          <label for="1299+" className="ml-3 text-sm font-medium">
+                            1299+
                           </label>
                         </div>
 
-                        <div class="pt-2">
+                        <div className="pt-2">
                           <button
                             type="button"
-                            class="text-xs text-gray-500 underline"
+                            className="text-xs text-white underline"
                           >
-                            Reset Age
+                            Reset Price
                           </button>
                         </div>
                       </div>
                     </fieldset>
                   </div>
 
-                  <div class="flex justify-between px-5 py-3 border-t border-gray-200">
+                  <div className="flex justify-between px-5 py-3 border-t border-gray-200">
                     <button
                       name="reset"
                       type="button"
-                      class="text-xs font-medium text-gray-600 underline rounded"
+                      className="text-xs font-medium text-white underline rounded"
                     >
                       Reset All
                     </button>
@@ -170,7 +170,7 @@ const ToolsSection = () => {
                     <button
                       name="commit"
                       type="button"
-                      class="px-5 py-3 text-xs font-medium text-white bg-green-600 rounded"
+                      className="px-5 py-3 text-xs font-medium text-white bg-green-400 rounded"
                     >
                       Apply Filters
                     </button>
@@ -179,21 +179,21 @@ const ToolsSection = () => {
               </details>
             </div>
 
-            <div class="lg:col-span-3">
-              <div class="flex items-center justify-between">
-                <p class="text-sm text-gray-500">
-                  <span class="hidden sm:inline">Showing</span>6 of 24 Products
+            <div className="lg:col-span-3">
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-white">
+                  <span className="hidden sm:inline">Showing</span> 6 of 24 Products
                 </p>
 
-                <div class="ml-4">
-                  <label for="SortBy" class="sr-only">
+                <div className="ml-4 text-black">
+                  <label for="SortBy" className="sr-only">
                     Sort
                   </label>
 
                   <select
                     id="SortBy"
                     name="sort_by"
-                    class="text-sm border-gray-100 rounded"
+                    className="text-sm border-gray-500 rounded"
                   >
                     <option readonly>Sort</option>
                     <option value="title-asc">Title, A-Z</option>
@@ -204,18 +204,18 @@ const ToolsSection = () => {
                 </div>
               </div>
 
-              <div class="grid grid-cols-1 gap-px mt-4 bg-gray-200 border border-gray-200 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-px mt-4 bg-gray-500 border border-gray-200 sm:grid-cols-2 lg:grid-cols-3">
                 <a
                   href="/product/build-your-own-drone"
-                  class="relative block bg-white"
+                  className="relative block bg-white"
                 >
                   <button
                     type="button"
                     name="wishlist"
-                    class="absolute p-2 text-white bg-black rounded-full right-4 top-4"
+                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
                   >
                     <svg
-                      class="w-4 h-4"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -233,28 +233,28 @@ const ToolsSection = () => {
                   <img
                     loading="lazy"
                     alt="Build Your Own Drone"
-                    class="object-contain w-full h-56 lg:h-72"
+                    className="object-contain w-full h-56 lg:h-72"
                     src="https://www.hyperui.dev/photos/toy-1.jpeg"
                   />
 
-                  <div class="p-6">
-                    <span class="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
+                  <div className="p-6">
+                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
                       New
                     </span>
 
-                    <h5 class="mt-4 text-lg font-bold">Build Your Own Drone</h5>
+                    <h5 className="mt-4 text-lg font-bold text-gray-800">Build Your Own Drone</h5>
 
-                    <p class="mt-2 text-sm font-medium text-gray-600">$14.99</p>
+                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
 
                     <button
                       name="add"
                       type="button"
-                      class="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
+                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
                     >
-                      <span class="text-sm font-medium">Add to Cart</span>
+                      <span className="text-sm font-medium">Add to Cart</span>
 
                       <svg
-                        class="w-5 h-5 ml-1.5"
+                        className="w-5 h-5 ml-1.5"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -273,15 +273,15 @@ const ToolsSection = () => {
 
                 <a
                   href="/product/build-your-own-drone"
-                  class="relative block bg-white"
+                  className="relative block bg-white"
                 >
                   <button
                     type="button"
                     name="wishlist"
-                    class="absolute p-2 text-white bg-black rounded-full right-4 top-4"
+                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
                   >
                     <svg
-                      class="w-4 h-4"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -299,28 +299,28 @@ const ToolsSection = () => {
                   <img
                     loading="lazy"
                     alt="Build Your Own Drone"
-                    class="object-contain w-full h-56 lg:h-72"
+                    className="object-contain w-full h-56 lg:h-72"
                     src="https://www.hyperui.dev/photos/toy-1.jpeg"
                   />
 
-                  <div class="p-6">
-                    <span class="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
+                  <div className="p-6">
+                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
                       New
                     </span>
 
-                    <h5 class="mt-4 text-lg font-bold">Build Your Own Drone</h5>
+                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
 
-                    <p class="mt-2 text-sm font-medium text-gray-600">$14.99</p>
+                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
 
                     <button
                       name="add"
                       type="button"
-                      class="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
+                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
                     >
-                      <span class="text-sm font-medium">Add to Cart</span>
+                      <span className="text-sm font-medium">Add to Cart</span>
 
                       <svg
-                        class="w-5 h-5 ml-1.5"
+                        className="w-5 h-5 ml-1.5"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -339,15 +339,15 @@ const ToolsSection = () => {
 
                 <a
                   href="/product/build-your-own-drone"
-                  class="relative block bg-white"
+                  className="relative block bg-white"
                 >
                   <button
                     type="button"
                     name="wishlist"
-                    class="absolute p-2 text-white bg-black rounded-full right-4 top-4"
+                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
                   >
                     <svg
-                      class="w-4 h-4"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -365,28 +365,28 @@ const ToolsSection = () => {
                   <img
                     loading="lazy"
                     alt="Build Your Own Drone"
-                    class="object-contain w-full h-56 lg:h-72"
+                    className="object-contain w-full h-56 lg:h-72"
                     src="https://www.hyperui.dev/photos/toy-1.jpeg"
                   />
 
-                  <div class="p-6">
-                    <span class="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
+                  <div className="p-6">
+                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
                       New
                     </span>
 
-                    <h5 class="mt-4 text-lg font-bold">Build Your Own Drone</h5>
+                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
 
-                    <p class="mt-2 text-sm font-medium text-gray-600">$14.99</p>
+                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
 
                     <button
                       name="add"
                       type="button"
-                      class="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
+                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
                     >
-                      <span class="text-sm font-medium">Add to Cart</span>
+                      <span className="text-sm font-medium">Add to Cart</span>
 
                       <svg
-                        class="w-5 h-5 ml-1.5"
+                        className="w-5 h-5 ml-1.5"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -405,15 +405,15 @@ const ToolsSection = () => {
 
                 <a
                   href="/product/build-your-own-drone"
-                  class="relative block bg-white"
+                  className="relative block bg-white"
                 >
                   <button
                     type="button"
                     name="wishlist"
-                    class="absolute p-2 text-white bg-black rounded-full right-4 top-4"
+                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
                   >
                     <svg
-                      class="w-4 h-4"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -431,28 +431,28 @@ const ToolsSection = () => {
                   <img
                     loading="lazy"
                     alt="Build Your Own Drone"
-                    class="object-contain w-full h-56 lg:h-72"
+                    className="object-contain w-full h-56 lg:h-72"
                     src="https://www.hyperui.dev/photos/toy-1.jpeg"
                   />
 
-                  <div class="p-6">
-                    <span class="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
+                  <div className="p-6">
+                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
                       New
                     </span>
 
-                    <h5 class="mt-4 text-lg font-bold">Build Your Own Drone</h5>
+                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
 
-                    <p class="mt-2 text-sm font-medium text-gray-600">$14.99</p>
+                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
 
                     <button
                       name="add"
                       type="button"
-                      class="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
+                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
                     >
-                      <span class="text-sm font-medium">Add to Cart</span>
+                      <span className="text-sm font-medium">Add to Cart</span>
 
                       <svg
-                        class="w-5 h-5 ml-1.5"
+                        className="w-5 h-5 ml-1.5"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -471,15 +471,15 @@ const ToolsSection = () => {
 
                 <a
                   href="/product/build-your-own-drone"
-                  class="relative block bg-white"
+                  className="relative block bg-white"
                 >
                   <button
                     type="button"
                     name="wishlist"
-                    class="absolute p-2 text-white bg-black rounded-full right-4 top-4"
+                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
                   >
                     <svg
-                      class="w-4 h-4"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -497,28 +497,28 @@ const ToolsSection = () => {
                   <img
                     loading="lazy"
                     alt="Build Your Own Drone"
-                    class="object-contain w-full h-56 lg:h-72"
+                    className="object-contain w-full h-56 lg:h-72"
                     src="https://www.hyperui.dev/photos/toy-1.jpeg"
                   />
 
-                  <div class="p-6">
-                    <span class="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
+                  <div className="p-6">
+                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
                       New
                     </span>
 
-                    <h5 class="mt-4 text-lg font-bold">Build Your Own Drone</h5>
+                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
 
-                    <p class="mt-2 text-sm font-medium text-gray-600">$14.99</p>
+                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
 
                     <button
                       name="add"
                       type="button"
-                      class="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
+                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
                     >
-                      <span class="text-sm font-medium">Add to Cart</span>
+                      <span className="text-sm font-medium">Add to Cart</span>
 
                       <svg
-                        class="w-5 h-5 ml-1.5"
+                        className="w-5 h-5 ml-1.5"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -537,15 +537,15 @@ const ToolsSection = () => {
 
                 <a
                   href="/product/build-your-own-drone"
-                  class="relative block bg-white"
+                  className="relative block bg-white"
                 >
                   <button
                     type="button"
                     name="wishlist"
-                    class="absolute p-2 text-white bg-black rounded-full right-4 top-4"
+                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
                   >
                     <svg
-                      class="w-4 h-4"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -563,28 +563,28 @@ const ToolsSection = () => {
                   <img
                     loading="lazy"
                     alt="Build Your Own Drone"
-                    class="object-contain w-full h-56 lg:h-72"
+                    className="object-contain w-full h-56 lg:h-72"
                     src="https://www.hyperui.dev/photos/toy-1.jpeg"
                   />
 
-                  <div class="p-6">
-                    <span class="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
+                  <div className="p-6">
+                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
                       New
                     </span>
 
-                    <h5 class="mt-4 text-lg font-bold">Build Your Own Drone</h5>
+                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
 
-                    <p class="mt-2 text-sm font-medium text-gray-600">$14.99</p>
+                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
 
                     <button
                       name="add"
                       type="button"
-                      class="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
+                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
                     >
-                      <span class="text-sm font-medium">Add to Cart</span>
+                      <span className="text-sm font-medium">Add to Cart</span>
 
                       <svg
-                        class="w-5 h-5 ml-1.5"
+                        className="w-5 h-5 ml-1.5"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"

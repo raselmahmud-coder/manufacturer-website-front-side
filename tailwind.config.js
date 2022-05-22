@@ -4,12 +4,13 @@ module.exports = {
     "./node_modules/flowbite/**/*.js",
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
-  theme: {
-    extend: {},
+  daisyui: {
+    themes: ["synthwave"],
   },
   plugins: [
     require("flowbite/plugin"),
     require("daisyui"),
     require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
   ],
 };

@@ -3,29 +3,29 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer class="bg-gray-900">
-        <div class="max-w-screen-xl px-4 pt-16 pb-8 mx-auto sm:px-6 lg:px-8">
-          <div class="max-w-md mx-auto">
-            <strong class="block text-xl font-medium text-center text-white sm:text-3xl">
+      <footer className="bg-gray-900">
+        <div className="max-w-screen-xl px-4 pt-16 pb-8 mx-auto sm:px-6 lg:px-8">
+          <div className="max-w-md mx-auto">
+            <strong className="block text-xl font-medium text-center text-white sm:text-3xl">
               Want us to email you with the latest blockbuster news?
             </strong>
 
-            <form class="mt-6">
-              <div class="relative max-w-lg">
-                <label class="sr-only" for="email">
+            <form className="mt-6">
+              <div className="relative max-w-lg">
+                <label className="sr-only" for="email">
                   {" "}
                   Email{" "}
                 </label>
 
                 <input
-                  class="w-full p-4 pr-16 text-sm font-medium bg-white border-none rounded-full"
+                  className="w-full p-4 pr-16 text-sm font-medium bg-white border-none rounded-full"
                   id="email"
                   type="email"
                   placeholder="john@doe.com"
                 />
 
                 <button
-                  class="absolute top-1/2 right-1.5 -translate-y-1/2 rounded-full bg-blue-600 p-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-blue-700"
+                  className="absolute top-1/2 right-1.5 -translate-y-1/2 rounded-full bg-blue-600 p-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-blue-700"
                   type="button"
                 >
                   Subscribe
@@ -34,27 +34,27 @@ const Footer = () => {
             </form>
           </div>
 
-          <div class="grid grid-cols-1 gap-8 mt-16 lg:grid-cols-2 lg:gap-32">
-            <div class="max-w-sm mx-auto lg:max-w-none">
-              <span class="block w-32 h-10 mx-auto bg-gray-700 rounded-lg lg:ml-0"></span>
+          <div className="grid grid-cols-1 gap-8 mt-16 lg:grid-cols-2 lg:gap-32">
+            <div className="max-w-sm mx-auto lg:max-w-none">
+              <span className="block w-32 h-10 mx-auto bg-gray-700 rounded-lg lg:ml-0"></span>
 
-              <p class="mt-4 text-center text-white lg:text-left lg:text-lg">
+              <p className="mt-4 text-center text-white lg:text-left lg:text-lg">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Praesentium natus quod eveniet aut perferendis distinctio iusto
                 repudiandae, provident velit earum?
               </p>
 
-              <div class="flex justify-center gap-4 mt-6 text-gray-300 lg:justify-start">
+              <div className="flex justify-center gap-4 mt-6 text-gray-300 lg:justify-start">
                 <a
-                  class="transition hover:opacity-75"
+                  className="transition hover:opacity-75"
                   href=""
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span class="sr-only"> Facebook </span>
+                  <span className="sr-only"> Facebook </span>
 
                   <svg
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -68,15 +68,15 @@ const Footer = () => {
                 </a>
 
                 <a
-                  class="transition hover:opacity-75"
+                  className="transition hover:opacity-75"
                   href=""
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span class="sr-only"> Instagram </span>
+                  <span className="sr-only"> Instagram </span>
 
                   <svg
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -90,15 +90,15 @@ const Footer = () => {
                 </a>
 
                 <a
-                  class="transition hover:opacity-75"
+                  className="transition hover:opacity-75"
                   href=""
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span class="sr-only"> Twitter </span>
+                  <span className="sr-only"> Twitter </span>
 
                   <svg
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -108,15 +108,15 @@ const Footer = () => {
                 </a>
 
                 <a
-                  class="transition hover:opacity-75"
+                  className="transition hover:opacity-75"
                   href=""
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span class="sr-only"> GitHub </span>
+                  <span className="sr-only"> GitHub </span>
 
                   <svg
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -130,15 +130,15 @@ const Footer = () => {
                 </a>
 
                 <a
-                  class="transition hover:opacity-75"
+                  className="transition hover:opacity-75"
                   href=""
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span class="sr-only"> Dribbble </span>
+                  <span className="sr-only"> Dribbble </span>
 
                   <svg
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -153,49 +153,49 @@ const Footer = () => {
               </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left">
+            <div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left">
               <div>
-                <strong class="text-sm font-bold tracking-wide text-white uppercase">
+                <strong className="text-sm font-bold tracking-wide text-white uppercase">
                   Services
                 </strong>
 
-                <nav class="flex flex-col mt-6 space-y-1 text-gray-400">
-                  <a class="transition hover:text-white" href="/">
+                <nav className="flex flex-col mt-6 space-y-1 text-gray-400">
+                  <a className="transition hover:text-white" href="/">
                     {" "}
                     Marketing{" "}
                   </a>
-                  <a class="transition hover:text-white" href="/">
+                  <a className="transition hover:text-white" href="/">
                     {" "}
                     Graphic Design{" "}
                   </a>
-                  <a class="transition hover:text-white" href="/">
+                  <a className="transition hover:text-white" href="/">
                     App Development
                   </a>
-                  <a class="transition hover:text-white" href="/">
+                  <a className="transition hover:text-white" href="/">
                     Web Development
                   </a>
                 </nav>
               </div>
 
               <div>
-                <strong class="text-sm font-bold tracking-wide text-white uppercase">
+                <strong className="text-sm font-bold tracking-wide text-white uppercase">
                   About
                 </strong>
 
-                <nav class="flex flex-col mt-6 space-y-1 text-gray-400">
-                  <a class="transition hover:text-white" href="/">
+                <nav className="flex flex-col mt-6 space-y-1 text-gray-400">
+                  <a className="transition hover:text-white" href="/">
                     {" "}
                     About{" "}
                   </a>
-                  <a class="transition hover:text-white" href="/">
+                  <a className="transition hover:text-white" href="/">
                     {" "}
                     Careers{" "}
                   </a>
-                  <a class="transition hover:text-white" href="/">
+                  <a className="transition hover:text-white" href="/">
                     {" "}
                     History{" "}
                   </a>
-                  <a class="transition hover:text-white" href="/">
+                  <a className="transition hover:text-white" href="/">
                     {" "}
                     Our Team{" "}
                   </a>
@@ -203,20 +203,20 @@ const Footer = () => {
               </div>
 
               <div>
-                <strong class="text-sm font-bold tracking-wide text-white uppercase">
+                <strong className="text-sm font-bold tracking-wide text-white uppercase">
                   Support
                 </strong>
 
-                <nav class="flex flex-col mt-6 space-y-1 text-gray-400">
-                  <a class="transition hover:text-white" href="/">
+                <nav className="flex flex-col mt-6 space-y-1 text-gray-400">
+                  <a className="transition hover:text-white" href="/">
                     {" "}
                     FAQs{" "}
                   </a>
-                  <a class="transition hover:text-white" href="/">
+                  <a className="transition hover:text-white" href="/">
                     {" "}
                     Contact{" "}
                   </a>
-                  <a class="transition hover:text-white" href="/">
+                  <a className="transition hover:text-white" href="/">
                     {" "}
                     Live Chat{" "}
                   </a>
@@ -225,16 +225,16 @@ const Footer = () => {
             </div>
           </div>
 
-          <div class="pt-8 mt-16 border-t border-white/10">
-            <p class="text-xs leading-relaxed text-center text-gray-300">
+          <div className="pt-8 mt-16 border-t border-white/10">
+            <p className="text-xs leading-relaxed text-center text-gray-300">
               © Company 2020 - {new Date().getFullYear()} All rights reserved.
               <br />
               Created with
-              <a href="" class="underline transition hover:text-white">
+              <a href="" className="underline transition hover:text-white">
                 Laravel
               </a>{" "}
               and
-              <a href="" class="underline transition hover:text-white">
+              <a href="" className="underline transition hover:text-white">
                 Laravel Livewire
               </a>
               .
