@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
+import HeroSection from "./HeroSection/HeroSection";
+import Reviews from "./Reviews/Reviews";
+import ToolsSection from "./ToolsSection/ToolsSection";
 
 const HomePage = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <>
+      <HeroSection />
+          <ToolsSection />
+          <Reviews/>
+    </>
+  );
 };
 
 export default HomePage;
