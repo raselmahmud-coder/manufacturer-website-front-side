@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Purchase.css";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 const Purchase = () => {
+  const [count, setCount] = useState(10);
+
+  const handlePlus = (e) => {
+    const number = +e.target.value;
+    setCount(number);
+  };
+
   return (
     <>
       <section>
@@ -150,13 +159,18 @@ const Purchase = () => {
                 </div>
               </details>
 
-              <form className="mt-8">
+              <div className="mt-8">
                 <fieldset>
-                  <legend className="mb-1 text-sm font-medium">Color</legend>
+                  <legend className="mb-1 text-sm text-center font-medium">
+                    Color
+                  </legend>
 
                   <div className="flow-root">
-                    <div className="flex flex-wrap -m-0.5">
-                      <label for="color_tt" className="cursor-pointer p-0.5">
+                    <div className="flex justify-center flex-wrap -m-0.5">
+                      <label
+                        htmlFor="color_tt"
+                        className="cursor-pointer p-0.5"
+                      >
                         <input
                           type="radio"
                           name="color"
@@ -169,7 +183,10 @@ const Purchase = () => {
                         </span>
                       </label>
 
-                      <label for="color_fr" className="cursor-pointer p-0.5">
+                      <label
+                        htmlFor="color_fr"
+                        className="cursor-pointer p-0.5"
+                      >
                         <input
                           type="radio"
                           name="color"
@@ -182,7 +199,10 @@ const Purchase = () => {
                         </span>
                       </label>
 
-                      <label for="color_cb" className="cursor-pointer p-0.5">
+                      <label
+                        htmlFor="color_cb"
+                        className="cursor-pointer p-0.5"
+                      >
                         <input
                           type="radio"
                           name="color"
@@ -199,11 +219,13 @@ const Purchase = () => {
                 </fieldset>
 
                 <fieldset className="mt-4">
-                  <legend className="mb-1 text-sm font-medium">Size</legend>
+                  <legend className="mb-1 text-sm text-center font-medium">
+                    Size
+                  </legend>
 
                   <div className="flow-root">
-                    <div className="flex flex-wrap -m-0.5">
-                      <label for="size_xs" className="cursor-pointer p-0.5">
+                    <div className="flex justify-center flex-wrap -m-0.5">
+                      <label htmlFor="size_xs" className="cursor-pointer p-0.5">
                         <input
                           type="radio"
                           name="size"
@@ -216,7 +238,7 @@ const Purchase = () => {
                         </span>
                       </label>
 
-                      <label for="size_s" className="cursor-pointer p-0.5">
+                      <label htmlFor="size_s" className="cursor-pointer p-0.5">
                         <input
                           type="radio"
                           name="size"
@@ -229,7 +251,7 @@ const Purchase = () => {
                         </span>
                       </label>
 
-                      <label for="size_m" className="cursor-pointer p-0.5">
+                      <label htmlFor="size_m" className="cursor-pointer p-0.5">
                         <input
                           type="radio"
                           name="size"
@@ -242,7 +264,7 @@ const Purchase = () => {
                         </span>
                       </label>
 
-                      <label for="size_l" className="cursor-pointer p-0.5">
+                      <label htmlFor="size_l" className="cursor-pointer p-0.5">
                         <input
                           type="radio"
                           name="size"
@@ -255,7 +277,7 @@ const Purchase = () => {
                         </span>
                       </label>
 
-                      <label for="size_xl" className="cursor-pointer p-0.5">
+                      <label htmlFor="size_xl" className="cursor-pointer p-0.5">
                         <input
                           type="radio"
                           name="size"
@@ -270,30 +292,43 @@ const Purchase = () => {
                     </div>
                   </div>
                 </fieldset>
-
-                <div className="flex mt-8">
+                <div className="flex justify-center items-center mt-8">
                   <div>
-                    <label for="quantity" className="sr-only">
-                      Qty
-                    </label>
-
                     <input
                       type="number"
                       id="quantity"
-                      min="1"
-                      value="1"
-                      className="w-12 py-3 text-xs text-center border-gray-200 rounded no-spinners"
+                      min="10"
+                      value={count}
+                      onChange={handlePlus}
+                      placeholder="Min 10 Qty/Unit"
+                      className="w-12 text-black py-3 text-xs text-center border-gray-200 rounded no-spinners mr-3"
                     />
                   </div>
+                  <button
+                    className="inline-flex justify-center items-center mr-1 w-8 h-8 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white"
+                    onClick={() => setCount( count + 1)}
+                  >
+                    <i>
+                      <AiOutlinePlus />
+                    </i>
+                  </button>
 
                   <button
+                    className="inline-flex justify-center items-center ml-1 w-8 h-8 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white"
+                    onClick={() => setCount(count - 1)}
+                  >
+                    <i>
+                      <AiOutlineMinus />
+                    </i>
+                  </button>
+                  <button
                     type="submit"
-                    className="block px-5 py-3 ml-3 text-xs font-medium text-white bg-green-600 rounded hover:bg-green-500"
+                    className="block px-5 py-3 ml-3 text-xs font-medium text-white bg-green-300 rounded hover:bg-green-400"
                   >
                     Add to Cart
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

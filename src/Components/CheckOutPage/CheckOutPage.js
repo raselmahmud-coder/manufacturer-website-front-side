@@ -101,7 +101,7 @@ const CheckOutPage = () => {
                   <div className="col-span-3">
                     <label
                       className="block mb-1 text-sm text-gray-600"
-                      for="first_name"
+                      htmlFor="first_name"
                     >
                       First Name
                     </label>
@@ -116,7 +116,7 @@ const CheckOutPage = () => {
                   <div className="col-span-3">
                     <label
                       className="block mb-1 text-sm text-gray-600"
-                      for="last_name"
+                      htmlFor="last_name"
                     >
                       Last Name
                     </label>
@@ -129,7 +129,7 @@ const CheckOutPage = () => {
                   </div>
 
                   <div className="col-span-6">
-                    <label className="block mb-1 text-sm text-gray-600" for="email">
+                    <label className="block mb-1 text-sm text-gray-600" htmlFor="email">
                       Email
                     </label>
 
@@ -141,7 +141,7 @@ const CheckOutPage = () => {
                   </div>
 
                   <div className="col-span-6">
-                    <label className="block mb-1 text-sm text-gray-600" for="phone">
+                    <label className="block mb-1 text-sm text-gray-600" htmlFor="phone">
                       Phone
                     </label>
 
@@ -159,7 +159,7 @@ const CheckOutPage = () => {
 
                     <div className="-space-y-px bg-white rounded-lg shadow-sm">
                       <div>
-                        <label className="sr-only" for="card-number">
+                        <label className="sr-only" htmlFor="card-number">
                           Card Number
                         </label>
 
@@ -174,7 +174,7 @@ const CheckOutPage = () => {
 
                       <div className="flex -space-x-px">
                         <div className="flex-1">
-                          <label className="sr-only" for="card-expiration-date">
+                          <label className="sr-only" htmlFor="card-expiration-date">
                             Expiration Date
                           </label>
 
@@ -188,7 +188,7 @@ const CheckOutPage = () => {
                         </div>
 
                         <div className="flex-1">
-                          <label className="sr-only" for="card-cvc">
+                          <label className="sr-only" htmlFor="card-cvc">
                             CVC
                           </label>
 
@@ -211,7 +211,7 @@ const CheckOutPage = () => {
 
                     <div className="-space-y-px bg-white rounded-lg shadow-sm">
                       <div>
-                        <label className="sr-only" for="country">
+                        <label className="sr-only" htmlFor="country">
                           Country
                         </label>
 
@@ -231,7 +231,7 @@ const CheckOutPage = () => {
                       </div>
 
                       <div>
-                        <label className="sr-only" for="postal-code">
+                        <label className="sr-only" htmlFor="postal-code">
                           ZIP/Post Code
                         </label>
 
