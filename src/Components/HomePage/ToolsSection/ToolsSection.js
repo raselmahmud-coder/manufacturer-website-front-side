@@ -608,9 +608,8 @@ const ToolsSection = () => {
     </>
   );
 };
-window.addEventListener("resize", () => {
+  window.addEventListener("resize", () => {
   const desktopScreen = window.innerWidth < 768;
-
   document.querySelector("details").open = !desktopScreen;
 });
 export default ToolsSection;

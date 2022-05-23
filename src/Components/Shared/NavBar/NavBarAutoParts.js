@@ -1,7 +1,18 @@
+import { signOut } from "firebase/auth";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../../firebase.init";
 import logo from "../../../images/logo.png";
 const NavBarAutoParts = () => {
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
+  console.log("from nav bar", user?.photoURL);
+
+  const handleLogOut = () => {
+    signOut(auth);
+    navigate("/");
+  };
   const menu = (
     <>
       <li>
@@ -14,7 +25,10 @@ const NavBarAutoParts = () => {
         <Link to={"/contact"}>Contact</Link>
       </li>
       <li>
-        <Link to={"services"}>Services</Link>
+        <Link to={"/services"}>Services</Link>
+      </li>
+      <li>
+        <Link to={"/log-in"}>Log In</Link>
       </li>
     </>
   );
@@ -84,38 +98,43 @@ const NavBarAutoParts = () => {
                   <span className="font-bold text-lg">8 Items</span>
                   <span className="text-info">Subtotal: $999</span>
                   <div className="card-actions">
-                    <button className="btn btn-primary btn-block">View cart</button>
+                    <button className="btn btn-primary btn-block">
+                      View cart
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="dropdown dropdown-end">
-              <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src="https://api.lorem.space/image/face?hash=33791" />
-                </div>
-              </label>
-              <ul
-                tabIndex="0"
-                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a>Logout</a>
-                </li>
-              </ul>
-            </div>
+            {user && (
+              <div className="dropdown dropdown-end">
+                <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img
+                      src={user?.photoURL ? user?.photoURL : `https://api.lorem.space/image/face?hash=33791`}
+                      alt="profile"
+                    />
+                  </div>
+                </label>
+                <ul
+                  tabIndex="0"
+                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link to={"/"} className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={"/"}>Settings</Link>
+                  </li>
+                  <li>
+                    <span onClick={handleLogOut}>Logout</span>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
-
-          {/* end */}
         </div>
       </div>
     </>

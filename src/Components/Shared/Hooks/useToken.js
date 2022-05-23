@@ -6,7 +6,7 @@ const useToken = (user) => {
     const email = user?.user?.email;
     const currentUser = { email: email };
     console.log("email get inside token", email);
-    if (email) {
+/*     if (email) {
       fetch(`https://doctors-portal-rm.herokuapp.com/user/${email}`, {
         method: "PUT",
         headers: {
@@ -21,7 +21,7 @@ const useToken = (user) => {
             localStorage.setItem("accessToken", accessToken)
           setToken(accessToken);
         });
-    }
+    } */
   }, [user]);
   return [token];
 };
