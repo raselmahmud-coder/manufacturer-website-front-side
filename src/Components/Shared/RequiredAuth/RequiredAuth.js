@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Navigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
-import auth from "../../../firebase.init";
+import { auth } from "../../../firebase.init";
 
 const RequiredAuth = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
@@ -21,7 +21,8 @@ const RequiredAuth = ({ children }) => {
   }
   if (error) {
     toast.error(`error happen ${error}`, {
-      id: "auth-error",
+      toastId: "auth-error",
+      theme:"colored"
     });
   }
   if (!user) {

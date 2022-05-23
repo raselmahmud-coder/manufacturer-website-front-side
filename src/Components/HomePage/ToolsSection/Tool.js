@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Tool = ({ tool }) => {
-  const { name, price, quantity, image, description } = tool;
+  const {_id, name, price, quantity, image, description } = tool;
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate("/purchase");
+    navigate(`/purchase/${_id}`);
   };
   return (
     <>
@@ -58,7 +58,7 @@ const Tool = ({ tool }) => {
             name="add"
             type="button"
             className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-xl hover:shadow-xl"
-            onClick={handleNavigate}
+            onClick={()=>handleNavigate(_id)}
           >
             <span className="text-xl uppercase">Buy Now</span>
 

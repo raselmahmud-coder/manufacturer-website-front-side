@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import About from "./Components/AboutPage/About";
 import Contact from "./Components/ContactPage/Contact";
 import HomePage from "./Components/HomePage/HomePage";
@@ -8,6 +10,7 @@ import Purchase from "./Components/Purchase/Purchase";
 import Services from "./Components/ServicesPage/Services";
 import Footer from "./Components/Shared/Footer/Footer";
 import NavBarAutoParts from "./Components/Shared/NavBar/NavBarAutoParts";
+import RequiredAuth from "./Components/Shared/RequiredAuth/RequiredAuth";
 
 function App() {
   return (
@@ -19,10 +22,18 @@ function App() {
         <Route path="/services" element={<Services />}></Route>
         <Route path="/pricing" element={<Pricing />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/purchase" element={<Purchase />}></Route>
+        <Route
+          path="/purchase/:id"
+          element={
+            <RequiredAuth>
+              <Purchase />
+            </RequiredAuth>
+          }
+        ></Route>
         <Route path="/log-in" element={<LogIn />}></Route>
       </Routes>
       <Footer />
+      <ToastContainer />
     </>
   );
 }

@@ -251,7 +251,7 @@ const ToolsSection = () => {
                     <SpinnerCircular speed={250} color={"#0FCFEC"} />
                   </div>
                 ) : (
-                  tools.map((tool) => <Tool key={tool._id} tool={tool} />)
+                  tools.slice(0,6).map((tool) => <Tool key={tool._id} tool={tool} />)
                 )}
               </div>
             </div>
@@ -261,8 +261,8 @@ const ToolsSection = () => {
     </>
   );
 };
-window.addEventListener("resize", () => {
+/* window.addEventListener("resize", () => {
   const desktopScreen = window.innerWidth < 768;
   document.querySelector("details").open = !desktopScreen;
-});
+}); */
 export default ToolsSection;

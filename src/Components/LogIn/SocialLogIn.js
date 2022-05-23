@@ -13,25 +13,26 @@ const SocialLogIn = () => {
   // const [user, loading, error] = useAuthState(auth);
   const [token] = useToken(user);
   const from = location.state?.from?.pathname || "/";
-  useEffect(() => {
+  /*   useEffect(() => {
     if (token) {
       navigate(from, { replace: true });
     }
-    console.log("Google User", user);
   }, [navigate, from, token, user]);
-
-  const handleGoogle = () => {
-    signInWithGoogle();
+ */
+  // console.log("user from social", user);
+  const handleGoogle = async () => {
+    await signInWithGoogle();
+    navigate(from, { replace: true });
   };
   if (loading) {
     return (
       <>
-      <SpinnerCircular
-        speed={120}
-        color={"#0FCFEC"}
-        style={{ margin: "0px auto", display: "block" }}
-      />
-    </>
+        <SpinnerCircular
+          speed={120}
+          color={"#0FCFEC"}
+          style={{ margin: "0px auto", display: "block" }}
+        />
+      </>
     );
   }
   if (error) {

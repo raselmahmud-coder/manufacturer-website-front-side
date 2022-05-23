@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Purchase.css";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { useParams } from "react-router-dom";
 
 const Purchase = () => {
-  const [count, setCount] = useState(10);
-
-  const handlePlus = (e) => {
+  const [count, setCount] = useState(0);
+  const [orderError, setOrderError] = useState({
+    minOderError: "",
+    maxOrderError: "",
+  });
+  const { id } = useParams();
+  // console.log("got id", id);
+  const handleInputValue = (e) => {
     const number = +e.target.value;
     setCount(number);
   };
-
+  useEffect(() => {
+    if (count < 10) {
+      setOrderError({ minOderError: "Min Order 10 Quantity Per Unit" });
+      // console.log("min order error");
+    }
+   else if (count > 15) {
+      setOrderError({ maxOrderError: "Sorry! Not Available" });
+      // console.log("max order error");
+    } else {
+      setOrderError({ minOderError: "" });
+      setOrderError({ maxOrderError: "" });
+    }
+  }, [count]);
   return (
     <>
       <section>
@@ -297,16 +315,15 @@ const Purchase = () => {
                     <input
                       type="number"
                       id="quantity"
-                      min="10"
                       value={count}
-                      onChange={handlePlus}
+                      onChange={handleInputValue}
                       placeholder="Min 10 Qty/Unit"
                       className="w-12 text-black py-3 text-xs text-center border-gray-200 rounded no-spinners mr-3"
                     />
                   </div>
                   <button
                     className="inline-flex justify-center items-center mr-1 w-8 h-8 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white"
-                    onClick={() => setCount( count + 1)}
+                    onClick={() => setCount(count + 1)}
                   >
                     <i>
                       <AiOutlinePlus />
@@ -328,6 +345,16 @@ const Purchase = () => {
                     Add to Cart
                   </button>
                 </div>
+                {orderError.minOderError && (
+                  <p className="text-red-600 text-xl text-center mt-3">
+                    {orderError.minOderError}
+                  </p>
+                )}
+                {orderError.maxOrderError && (
+                  <p className="text-red-600 text-xl text-center mt-3">
+                    {orderError.maxOrderError}
+                  </p>
+                )}
               </div>
             </div>
           </div>

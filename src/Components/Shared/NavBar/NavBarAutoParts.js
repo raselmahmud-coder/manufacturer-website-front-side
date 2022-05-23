@@ -5,9 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase.init";
 import logo from "../../../images/logo.png";
 const NavBarAutoParts = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   console.log("from nav bar", user?.photoURL);
+  console.log(error);
 
   const handleLogOut = () => {
     signOut(auth);
@@ -27,9 +28,11 @@ const NavBarAutoParts = () => {
       <li>
         <Link to={"/services"}>Services</Link>
       </li>
-      <li>
-        <Link to={"/log-in"}>Log In</Link>
-      </li>
+      {!user && (
+        <li>
+          <Link to={"/log-in"}>Log In</Link>
+        </li>
+      )}
     </>
   );
 
@@ -110,7 +113,11 @@ const NavBarAutoParts = () => {
                 <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
                     <img
-                      src={user?.photoURL ? user?.photoURL : `https://api.lorem.space/image/face?hash=33791`}
+                      src={
+                        user?.photoURL
+                          ? user?.photoURL
+                          : `https://api.lorem.space/image/face?hash=33791`
+                      }
                       alt="profile"
                     />
                   </div>
@@ -127,6 +134,17 @@ const NavBarAutoParts = () => {
                   </li>
                   <li>
                     <Link to={"/"}>Settings</Link>
+                  </li>
+                  <li>
+                    <span>{user?.displayName || "Does Provide name"}</span>
+                  </li>
+                  <li>
+                    <span
+                      className="border-2 border-lime-400"
+                      style={{ fontSize: "10px" }}
+                    >
+                      {user?.email}
+                    </span>
                   </li>
                   <li>
                     <span onClick={handleLogOut}>Logout</span>
