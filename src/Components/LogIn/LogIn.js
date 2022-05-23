@@ -37,11 +37,11 @@ const LogIn = () => {
       theme: "colored",
     });
   }
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
   };
   return (
     <>
@@ -53,12 +53,14 @@ const LogIn = () => {
             name="email"
             type="email"
             className="input w-full border-gray-300 border-2"
+            required
           />
           <label htmlFor="password">Password</label>
           <input
             name="password"
             type="password"
             className="input w-full border-gray-300 border-2"
+            required
           />
           <Link to={"/"} className="block mb-4">
             Forget Password?

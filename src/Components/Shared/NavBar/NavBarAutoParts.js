@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { SpinnerCircular } from "spinners-react";
 import { auth } from "../../../firebase.init";
 import logo from "../../../images/logo.png";
 const NavBarAutoParts = () => {
@@ -10,8 +11,9 @@ const NavBarAutoParts = () => {
   console.log("from nav bar", user?.photoURL);
   console.log(error);
 
-  const handleLogOut = () => {
-    signOut(auth);
+  const handleLogOut = async () => {
+    await signOut(auth);
+    localStorage.removeItem("accessToken");
     navigate("/");
   };
   const menu = (
@@ -28,6 +30,13 @@ const NavBarAutoParts = () => {
       <li>
         <Link to={"/services"}>Services</Link>
       </li>
+      {loading && (
+        <SpinnerCircular
+          speed={120}
+          color={"#0FCFEC"}
+          style={{ margin: "0px auto", display: "block" }}
+        />
+      )}
       {!user && (
         <li>
           <Link to={"/log-in"}>Log In</Link>

@@ -1,3 +1,4 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
@@ -7,9 +8,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
-import auth from "../../../firebase.init";
-import useToken from "../../../hooks/useToken";
-import Footer from "../../Shared/Footer/Footer";
+import { auth } from "../../firebase.init";
 import SocialLogIn from "../LogIn/SocialLogIn";
 const Registration = () => {
   const {
@@ -21,13 +20,6 @@ const Registration = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-  const [token] = useToken(user);
-
-  useEffect(() => {
-    if (user && token) {
-      navigate("/appointment");
-    }
-  }, [navigate, user, token]);
 
   const onSubmit = async (data) => {
     const displayName = data.name;
@@ -35,10 +27,13 @@ const Registration = () => {
     const password = data.password;
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName });
-    toast.success("user is created", {
+    await signOut(auth);
+    navigate("/log-in");
+    toast.success("User has been created, Please log in", {
       id: "updated",
     });
   };
+  console.log("custom email user",user);
   if (loading || updating) {
     return (
       <>
@@ -103,6 +98,7 @@ const Registration = () => {
               })}
               className="input w-full border-gray-300 border-2"
               type={"password"}
+              required
             />
             {errors?.password?.message && (
               <p className="text-red-500">
@@ -130,7 +126,6 @@ const Registration = () => {
         </div>
         <SocialLogIn />
       </div>
-      <Footer />
     </>
   );
 };

@@ -7,6 +7,7 @@ import HomePage from "./Components/HomePage/HomePage";
 import LogIn from "./Components/LogIn/LogIn";
 import Pricing from "./Components/Pricing/Pricing";
 import Purchase from "./Components/Purchase/Purchase";
+import Registration from "./Components/Registration/Registration";
 import Services from "./Components/ServicesPage/Services";
 import Footer from "./Components/Shared/Footer/Footer";
 import NavBarAutoParts from "./Components/Shared/NavBar/NavBarAutoParts";
@@ -31,9 +32,21 @@ function App() {
           }
         ></Route>
         <Route path="/log-in" element={<LogIn />}></Route>
+        <Route path="/registration" element={<Registration />}></Route>
       </Routes>
       <Footer />
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }

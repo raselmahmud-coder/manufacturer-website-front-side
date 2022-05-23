@@ -10,19 +10,18 @@ const SocialLogIn = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
   const location = useLocation();
-  // const [user, loading, error] = useAuthState(auth);
   const [token] = useToken(user);
+  // const [user, loading, error] = useAuthState(auth);
   const from = location.state?.from?.pathname || "/";
-  /*   useEffect(() => {
-    if (token) {
+  useEffect(() => {
+    if (token && user) {
       navigate(from, { replace: true });
     }
-  }, [navigate, from, token, user]);
- */
+  }, [from, navigate, user, token]);
   // console.log("user from social", user);
   const handleGoogle = async () => {
     await signInWithGoogle();
-    navigate(from, { replace: true });
+    console.log("inside goole1111111");
   };
   if (loading) {
     return (
