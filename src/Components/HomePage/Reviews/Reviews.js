@@ -8,6 +8,7 @@ SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 const Reviews = () => {
   return (
     <div>
+      <h1 className="text-4xl text-center uppercase my-4">What Our Customer Says</h1>
       <Swiper
         navigation
         loop={true}

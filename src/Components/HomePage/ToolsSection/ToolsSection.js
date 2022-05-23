@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { SpinnerCircular } from "spinners-react";
+import Tool from "./Tool";
 
 const ToolsSection = () => {
+  const [tools, setTools] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    fetch(`https://auto-parts-rm.herokuapp.com/tools`, {
+      method: "get",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setTools(data);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <>
       <section>
@@ -30,7 +46,10 @@ const ToolsSection = () => {
                   </svg>
                 </summary>
 
-                <form action="" className="border-t border-gray-200 lg:border-t-0">
+                <form
+                  action=""
+                  className="border-t border-gray-200 lg:border-t-0"
+                >
                   <fieldset>
                     <legend className="block w-full px-5 py-3 text-xs font-medium bg-gray-500">
                       Categories
@@ -45,7 +64,10 @@ const ToolsSection = () => {
                           className="w-5 h-5 border-gray-300 rounded"
                         />
 
-                        <label htmlFor="car-security" className="ml-3 text-sm font-medium">
+                        <label
+                          htmlFor="car-security"
+                          className="ml-3 text-sm font-medium"
+                        >
                           Car Security
                         </label>
                       </div>
@@ -58,7 +80,10 @@ const ToolsSection = () => {
                           className="w-5 h-5 border-gray-300 rounded"
                         />
 
-                        <label htmlFor="car-gadgets" className="ml-3 text-sm font-medium">
+                        <label
+                          htmlFor="car-gadgets"
+                          className="ml-3 text-sm font-medium"
+                        >
                           Car Gadgets
                         </label>
                       </div>
@@ -71,7 +96,10 @@ const ToolsSection = () => {
                           className="w-5 h-5 border-gray-300 rounded"
                         />
 
-                        <label htmlFor="car-accessories" className="ml-3 text-sm font-medium">
+                        <label
+                          htmlFor="car-accessories"
+                          className="ml-3 text-sm font-medium"
+                        >
                           Car Accessories
                         </label>
                       </div>
@@ -102,7 +130,10 @@ const ToolsSection = () => {
                             className="w-5 h-5 border-gray-300 rounded"
                           />
 
-                          <label htmlFor="99+" className="ml-3 text-sm font-medium">
+                          <label
+                            htmlFor="99+"
+                            className="ml-3 text-sm font-medium"
+                          >
                             99+
                           </label>
                         </div>
@@ -115,7 +146,10 @@ const ToolsSection = () => {
                             className="w-5 h-5 border-gray-300 rounded"
                           />
 
-                          <label htmlFor="599+" className="ml-3 text-sm font-medium">
+                          <label
+                            htmlFor="599+"
+                            className="ml-3 text-sm font-medium"
+                          >
                             599+
                           </label>
                         </div>
@@ -128,7 +162,10 @@ const ToolsSection = () => {
                             className="w-5 h-5 border-gray-300 rounded"
                           />
 
-                          <label htmlFor="999+" className="ml-3 text-sm font-medium">
+                          <label
+                            htmlFor="999+"
+                            className="ml-3 text-sm font-medium"
+                          >
                             999+
                           </label>
                         </div>
@@ -141,7 +178,10 @@ const ToolsSection = () => {
                             className="w-5 h-5 border-gray-300 rounded"
                           />
 
-                          <label htmlFor="1299+" className="ml-3 text-sm font-medium">
+                          <label
+                            htmlFor="1299+"
+                            className="ml-3 text-sm font-medium"
+                          >
                             1299+
                           </label>
                         </div>
@@ -182,7 +222,8 @@ const ToolsSection = () => {
             <div className="lg:col-span-3">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-white">
-                  <span className="hidden sm:inline">Showing</span> 6 of 24 Products
+                  <span className="hidden sm:inline"> Showing </span>
+                  6 of {tools?.length} Products
                 </p>
 
                 <div className="ml-4 text-black">
@@ -195,7 +236,7 @@ const ToolsSection = () => {
                     name="sort_by"
                     className="text-sm border-gray-500 rounded"
                   >
-                    <option readonly>Sort</option>
+                    <option readOnly>Sort</option>
                     <option value="title-asc">Title, A-Z</option>
                     <option value="title-desc">Title, Z-A</option>
                     <option value="price-asc">Price, Low-High</option>
@@ -204,402 +245,14 @@ const ToolsSection = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-px mt-4 bg-gray-500 border border-gray-200 sm:grid-cols-2 lg:grid-cols-3">
-                <a
-                  href="/product/build-your-own-drone"
-                  className="relative block bg-white"
-                >
-                  <button
-                    type="button"
-                    name="wishlist"
-                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <img
-                    loading="lazy"
-                    alt="Build Your Own Drone"
-                    className="object-contain w-full h-56 lg:h-72"
-                    src="https://www.hyperui.dev/photos/toy-1.jpeg"
-                  />
-
-                  <div className="p-6">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
-                      New
-                    </span>
-
-                    <h5 className="mt-4 text-lg font-bold text-gray-800">Build Your Own Drone</h5>
-
-                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
-
-                    <button
-                      name="add"
-                      type="button"
-                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
-                    >
-                      <span className="text-sm font-medium">Add to Cart</span>
-
-                      <svg
-                        className="w-5 h-5 ml-1.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                        />
-                      </svg>
-                    </button>
+              <div className="grid grid-cols-1 gap-4 mt-4 bg-gray-500 border border-gray-200 sm:grid-cols-1 lg:grid-cols-2">
+                {loading ? (
+                  <div className="flex lg:justify-end justify-center">
+                    <SpinnerCircular speed={250} color={"#0FCFEC"} />
                   </div>
-                </a>
-
-                <a
-                  href="/product/build-your-own-drone"
-                  className="relative block bg-white"
-                >
-                  <button
-                    type="button"
-                    name="wishlist"
-                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <img
-                    loading="lazy"
-                    alt="Build Your Own Drone"
-                    className="object-contain w-full h-56 lg:h-72"
-                    src="https://www.hyperui.dev/photos/toy-1.jpeg"
-                  />
-
-                  <div className="p-6">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
-                      New
-                    </span>
-
-                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
-
-                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
-
-                    <button
-                      name="add"
-                      type="button"
-                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
-                    >
-                      <span className="text-sm font-medium">Add to Cart</span>
-
-                      <svg
-                        className="w-5 h-5 ml-1.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </a>
-
-                <a
-                  href="/product/build-your-own-drone"
-                  className="relative block bg-white"
-                >
-                  <button
-                    type="button"
-                    name="wishlist"
-                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <img
-                    loading="lazy"
-                    alt="Build Your Own Drone"
-                    className="object-contain w-full h-56 lg:h-72"
-                    src="https://www.hyperui.dev/photos/toy-1.jpeg"
-                  />
-
-                  <div className="p-6">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
-                      New
-                    </span>
-
-                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
-
-                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
-
-                    <button
-                      name="add"
-                      type="button"
-                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
-                    >
-                      <span className="text-sm font-medium">Add to Cart</span>
-
-                      <svg
-                        className="w-5 h-5 ml-1.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </a>
-
-                <a
-                  href="/product/build-your-own-drone"
-                  className="relative block bg-white"
-                >
-                  <button
-                    type="button"
-                    name="wishlist"
-                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <img
-                    loading="lazy"
-                    alt="Build Your Own Drone"
-                    className="object-contain w-full h-56 lg:h-72"
-                    src="https://www.hyperui.dev/photos/toy-1.jpeg"
-                  />
-
-                  <div className="p-6">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
-                      New
-                    </span>
-
-                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
-
-                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
-
-                    <button
-                      name="add"
-                      type="button"
-                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
-                    >
-                      <span className="text-sm font-medium">Add to Cart</span>
-
-                      <svg
-                        className="w-5 h-5 ml-1.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </a>
-
-                <a
-                  href="/product/build-your-own-drone"
-                  className="relative block bg-white"
-                >
-                  <button
-                    type="button"
-                    name="wishlist"
-                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <img
-                    loading="lazy"
-                    alt="Build Your Own Drone"
-                    className="object-contain w-full h-56 lg:h-72"
-                    src="https://www.hyperui.dev/photos/toy-1.jpeg"
-                  />
-
-                  <div className="p-6">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
-                      New
-                    </span>
-
-                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
-
-                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
-
-                    <button
-                      name="add"
-                      type="button"
-                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
-                    >
-                      <span className="text-sm font-medium">Add to Cart</span>
-
-                      <svg
-                        className="w-5 h-5 ml-1.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </a>
-
-                <a
-                  href="/product/build-your-own-drone"
-                  className="relative block bg-white"
-                >
-                  <button
-                    type="button"
-                    name="wishlist"
-                    className="absolute p-2 text-white bg-black rounded-full right-4 top-4"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <img
-                    loading="lazy"
-                    alt="Build Your Own Drone"
-                    className="object-contain w-full h-56 lg:h-72"
-                    src="https://www.hyperui.dev/photos/toy-1.jpeg"
-                  />
-
-                  <div className="p-6">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-yellow-400">
-                      New
-                    </span>
-
-                    <h5 className="mt-4 text-lg font-bold text-gray-600">Build Your Own Drone</h5>
-
-                    <p className="mt-2 text-sm font-medium text-gray-600">$14.99</p>
-
-                    <button
-                      name="add"
-                      type="button"
-                      className="flex items-center justify-center w-full px-8 py-4 mt-4 bg-yellow-500 rounded-sm"
-                    >
-                      <span className="text-sm font-medium">Add to Cart</span>
-
-                      <svg
-                        className="w-5 h-5 ml-1.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </a>
+                ) : (
+                  tools.map((tool) => <Tool key={tool._id} tool={tool} />)
+                )}
               </div>
             </div>
           </div>
@@ -608,7 +261,7 @@ const ToolsSection = () => {
     </>
   );
 };
-  window.addEventListener("resize", () => {
+window.addEventListener("resize", () => {
   const desktopScreen = window.innerWidth < 768;
   document.querySelector("details").open = !desktopScreen;
 });
