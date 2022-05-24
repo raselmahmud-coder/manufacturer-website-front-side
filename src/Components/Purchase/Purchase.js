@@ -4,20 +4,20 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { SpinnerCircular } from "spinners-react";
+import OrderConfirm from "./OrderConfirm";
 
 const Purchase = () => {
   const [src, setSrc] = useState({
     src: `https://demo.smartaddons.com/templates/html/autoparts/image/catalog/demo/product/400/1.jpg`,
     isLoading: false,
   });
-
-  // console.log("src", src.src);
+  const [tool, setTool] = useState({});
+  const [showModal, setShowModal] = useState(false);
   const [count, setCount] = useState(0);
   const [orderError, setOrderError] = useState({
     minOderError: "",
     maxOrderError: "",
   });
-  const [tool, setTool] = useState({});
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const handleInputValue = (e) => {
@@ -44,6 +44,7 @@ const Purchase = () => {
       }
     });
   }
+  // console.log("tools",tool,count);
   if (loading) {
     return (
       <>
@@ -56,9 +57,22 @@ const Purchase = () => {
     );
   }
   const handleLoading = () => {
-    setSrc({...src, isLoading: true });
+    setSrc({ ...src, isLoading: true });
   };
-// console.log("srouce",src);
+
+  const handleOrder = () => {
+    setShowModal(true);
+    /* axios({
+      method: "post",
+      url: `http://localhost:5000/order`,
+      data: {
+        firstName: "Fred",
+        lastName: "Flintstone",
+      },
+      headers: { Authorization: "Bearer ..." },
+    }).then((res) => console.log(res)); */
+  };
+
   return (
     <>
       <section>
@@ -295,7 +309,7 @@ const Purchase = () => {
                   </div>
                 </fieldset>
                 <h1 className="text-3xl text-center my-2">
-                  Available Quantity {tool?.quantity}
+                  Available Quantity Per Unit {tool?.quantity}
                 </h1>
                 <div className="flex justify-between items-center mt-8">
                   <div>
@@ -325,15 +339,17 @@ const Purchase = () => {
                       <AiOutlineMinus />
                     </i>
                   </button>
-                  <button
+
+                  <label
                     disabled={
                       orderError.maxOrderError || orderError.minOderError
                     }
-                    type="submit"
-                    className={`${(orderError.maxOrderError || orderError.minOderError) && 'cursor-not-allowed'} block px-5 py-3 ml-3 text-xs font-medium text-white bg-green-400 rounded hover:bg-green-300`}
+                    htmlFor="order-modal"
+                    onClick={handleOrder}
+                    className={`btn block px-5 py-3 ml-3 text-xs font-medium text-white bg-green-400 rounded hover:bg-green-300`}
                   >
-                    Add to Cart
-                  </button>
+                    Get Order
+                  </label>
                 </div>
                 {orderError.minOderError && (
                   <p className="text-red-600 text-xl text-center mt-3">
@@ -350,6 +366,7 @@ const Purchase = () => {
           </div>
         </div>
       </section>
+      {showModal && <OrderConfirm count={count} tool={tool} />}
     </>
   );
 };

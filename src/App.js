@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import About from "./Components/AboutPage/About";
 import Contact from "./Components/ContactPage/Contact";
+import AddReview from "./Components/DashBoard/AddReview";
 import DashBoard from "./Components/DashBoard/DashBoard";
 import MyOrders from "./Components/DashBoard/MyOrders";
 import ViewProfile from "./Components/DashBoard/ViewProfile";
@@ -14,6 +15,7 @@ import Registration from "./Components/Registration/Registration";
 import Services from "./Components/ServicesPage/Services";
 import Footer from "./Components/Shared/Footer/Footer";
 import NavBarAutoParts from "./Components/Shared/NavBar/NavBarAutoParts";
+import NotFound from "./Components/Shared/NotFound/NotFound";
 import RequiredAuth from "./Components/Shared/RequiredAuth/RequiredAuth";
 
 function App() {
@@ -37,10 +39,12 @@ function App() {
         <Route path="/log-in" element={<LogIn />}></Route>
         <Route path="/registration" element={<Registration />}></Route>
         <Route path="/dashboard" element={<DashBoard />}>
-          <Route index element={<MyOrders />} />
-          <Route path="my-orders" element={<MyOrders />} />
+          <Route index element={<ViewProfile />} />
           <Route path="view-profile" element={<ViewProfile />} />
+          <Route path="my-orders" element={<MyOrders />} />
+          <Route path="add-review" element={<AddReview />} />
         </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
       <ToastContainer

@@ -110,8 +110,8 @@ const NavBarAutoParts = () => {
                 className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
               >
                 <div className="card-body">
-                  <span className="font-bold text-lg">8 Items</span>
-                  <span className="text-info">Subtotal: $999</span>
+                  <span className="font-bold text-lg">0 Items</span>
+                  <span className="text-info">Subtotal: $0.00</span>
                   <div className="card-actions">
                     <button className="btn btn-primary btn-block">
                       View cart
@@ -146,9 +146,6 @@ const NavBarAutoParts = () => {
                       Dash Board
                     </Link>
                   </li>
-                  <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
-                    <Link to="/dashboard/my-orders">My Orders</Link>
-                  </li>
                   <li>
                     <Link
                       to={"/dashboard/view-profile"}
@@ -157,6 +154,12 @@ const NavBarAutoParts = () => {
                       View Profile
                       <span className="badge">New</span>
                     </Link>
+                  </li>
+                  <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
+                    <Link to="/dashboard/my-orders">My Orders</Link>
+                  </li>
+                  <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
+                    <Link to="/dashboard/add-review">Add Review</Link>
                   </li>
                   <li className="mt-2 border-2 border-lime-400 rounded-lg capitalize">
                     <span>{user?.displayName || "Doesn't Provide name"}</span>
