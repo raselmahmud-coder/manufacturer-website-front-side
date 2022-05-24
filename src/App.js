@@ -3,6 +3,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import About from "./Components/AboutPage/About";
 import Contact from "./Components/ContactPage/Contact";
+import DashBoard from "./Components/DashBoard/DashBoard";
+import MyOrders from "./Components/DashBoard/MyOrders";
+import ViewProfile from "./Components/DashBoard/ViewProfile";
 import HomePage from "./Components/HomePage/HomePage";
 import LogIn from "./Components/LogIn/LogIn";
 import Pricing from "./Components/Pricing/Pricing";
@@ -33,6 +36,11 @@ function App() {
         ></Route>
         <Route path="/log-in" element={<LogIn />}></Route>
         <Route path="/registration" element={<Registration />}></Route>
+        <Route path="/dashboard" element={<DashBoard />}>
+          <Route index element={<MyOrders />} />
+          <Route path="my-orders" element={<MyOrders />} />
+          <Route path="view-profile" element={<ViewProfile />} />
+        </Route>
       </Routes>
       <Footer />
       <ToastContainer

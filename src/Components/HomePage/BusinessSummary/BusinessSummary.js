@@ -67,14 +67,14 @@ const BusinessSummary = () => {
           <p className="text-3xl font-bold">Feedbacks</p>
         </div>
       </div>
-      <div className="flex justify-around bg:shadow mt-9">
+      <div className="grid lg:grid-cols-2 grid-cols-1 bg:shadow mt-9">
         <div>
-          <h1 className="text-4xl font-bold">
+          <h1 className="lg:text-4xl text-2xl font-bold text-center p-4">
             Have any question or want to get free quotes?
           </h1>
         </div>
         <div>
-          <div className="flex">
+          <div className="flex justify-center mt-5">
             <button className="btn btn-secondary">Request a Quote</button>
             <button className="btn btn-Primary ml-6">Contact Us</button>
           </div>
