@@ -25,8 +25,8 @@ const Purchase = () => {
     setCount(number);
   };
   useEffect(() => {
-    if (count < 10) {
-      setOrderError({ minOderError: "Min Order 10 Quantity Per Unit" });
+    if (count < 3) {
+      setOrderError({ minOderError: "Min Order 3 Quantity Per Unit" });
       // console.log("min order error");
     } else if (count > tool?.quantity) {
       setOrderError({ maxOrderError: "Sorry! Not Available" });
@@ -62,15 +62,6 @@ const Purchase = () => {
 
   const handleOrder = () => {
     setShowModal(true);
-    /* axios({
-      method: "post",
-      url: `http://localhost:5000/order`,
-      data: {
-        firstName: "Fred",
-        lastName: "Flintstone",
-      },
-      headers: { Authorization: "Bearer ..." },
-    }).then((res) => console.log(res)); */
   };
 
   return (
@@ -366,7 +357,9 @@ const Purchase = () => {
           </div>
         </div>
       </section>
-      {showModal && <OrderConfirm count={count} tool={tool} />}
+      {showModal && (
+        <OrderConfirm count={count} tool={tool} setShowModal={setShowModal} />
+      )}
     </>
   );
 };

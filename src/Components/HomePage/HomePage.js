@@ -4,18 +4,18 @@ import DiscountSection from "./DiscountSection/DiscountSection";
 import HeroSection from "./HeroSection/HeroSection";
 import LatestPosts from "./LatestPosts/LatestPosts";
 import Reviews from "./Reviews/Reviews";
-import ToolsSection from "./ToolsSection/ToolsSection";
+import ToolsSideBarSection from "./ToolsSection/ToolsSideBarSection";
 import TrustedInProduction from "./TrustedInProduction/TrustedInProduction";
 
 const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <ToolsSection />
+      <ToolsSideBarSection />
       <Reviews />
       <DiscountSection />
       <TrustedInProduction />
-      <BusinessSummary />
+      {/* <BusinessSummary /> */}
       <LatestPosts />
     </>
   );

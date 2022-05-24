@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Tool = ({ tool }) => {
-  const {_id, name, price, quantity, image, description } = tool;
+const ToolSingle = (props) => {
+  const { _id, name, price, quantity, image, description } = props.singleTool;
+  console.log("hello", name);
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate(`/purchase/${_id}`);
@@ -46,12 +47,10 @@ const Tool = ({ tool }) => {
           <h5 className="my-2 text-3xl uppercase font-bold text-gray-800">
             {name}
           </h5>
-          <p className="my-2 text-sm font-medium text-gray-600">
-            {description}
-          </p>
+          <p className="my-2 text-sm font-medium text-gray-600">{description}</p>
           <div className="my-2 flex justify-between text-sm font-medium text-gray-600">
             <p>Price $ {price} U/Q</p>
-            <p>Available Quantity: {quantity}</p>
+            <p>Available Quantity: {quantity}</p> 
           </div>
 
           <button
@@ -83,4 +82,4 @@ const Tool = ({ tool }) => {
   );
 };
 
-export default Tool;
+export default ToolSingle;

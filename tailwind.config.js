@@ -8,6 +8,7 @@ module.exports = {
     themes: ["synthwave"],
   },
   plugins: [
+    require("daisyui"),
     require("flowbite/plugin"),
     require("daisyui"),
     require("@tailwindcss/forms"),

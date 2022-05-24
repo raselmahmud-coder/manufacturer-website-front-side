@@ -1,22 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { SpinnerCircular } from "spinners-react";
-import Tool from "./Tool";
+import React from "react";
+import ToolsMainSection from "./ToolsMainSection";
 
-const ToolsSection = () => {
-  const [tools, setTools] = useState([]);
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    fetch(`https://auto-parts-rm.herokuapp.com/tools`, {
-      method: "get",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setTools(data);
-        setLoading(false);
-      });
-  }, []);
-
+const ToolsSideBarSection = () => {
   return (
     <>
       <section>
@@ -222,8 +207,8 @@ const ToolsSection = () => {
             <div className="lg:col-span-3">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-white">
-                  <span className="hidden sm:inline"> Showing </span>
-                  6 of {tools?.length} Products
+                  <span className="hidden sm:inline"> Showing </span>6 of 12
+                  Products
                 </p>
 
                 <div className="ml-4 text-black">
@@ -244,16 +229,7 @@ const ToolsSection = () => {
                   </select>
                 </div>
               </div>
-
-              <div className="grid grid-cols-1 gap-4 mt-4 bg-gray-500 border border-gray-200 sm:grid-cols-1 lg:grid-cols-2">
-                {loading ? (
-                  <div className="flex lg:justify-end justify-center">
-                    <SpinnerCircular speed={250} color={"#0FCFEC"} />
-                  </div>
-                ) : (
-                  tools.slice(0,6).map((tool) => <Tool key={tool._id} tool={tool} />)
-                )}
-              </div>
+              {<ToolsMainSection />}
             </div>
           </div>
         </div>
@@ -265,4 +241,4 @@ const ToolsSection = () => {
   const desktopScreen = window.innerWidth < 768;
   document.querySelector("details").open = !desktopScreen;
 }); */
-export default ToolsSection;
+export default ToolsSideBarSection;
