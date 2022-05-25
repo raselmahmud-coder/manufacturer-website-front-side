@@ -38,7 +38,7 @@ const LatestPosts = () => {
               <span className="font-bold text-green-300">by Rasel Mahmud</span>
             </div>
             <p className="text-xl my-2">
-              Biten demons lector in henderit in vulp no...
+            Read about the latest modern furniture design notes on the auto part blog...
             </p>
             <button className="uppercase text-2xl hover:text-gray-500 p-3 rounded-xl bg-green-400">
               read more
@@ -51,7 +51,7 @@ const LatestPosts = () => {
               <span className="font-bold text-green-300">by Rasel Mahmud</span>
             </div>
             <p className="text-xl my-2">
-              Biten demons lector in henderit in vulp no...
+            Leave the season in Furnob style...
             </p>
             <button className="uppercase text-2xl hover:text-gray-500 p-3 rounded-xl bg-green-400">
               read more

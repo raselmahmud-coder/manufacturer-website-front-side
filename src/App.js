@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import About from "./Components/AboutPage/About";
+import BlogsMain from "./Components/BlogPage/BlogsMain";
 import Contact from "./Components/ContactPage/Contact";
 import AddReview from "./Components/DashBoard/AddReview";
 import DashBoard from "./Components/DashBoard/DashBoard";
@@ -14,6 +15,7 @@ import Payment from "./Components/DashBoard/Payment/Payment";
 import ViewProfile from "./Components/DashBoard/ViewProfile";
 import HomePage from "./Components/HomePage/HomePage";
 import LogIn from "./Components/LogIn/LogIn";
+import MyPortfolioMain from "./Components/MyPortfolioPage/MyPortfolioMain";
 import Pricing from "./Components/Pricing/Pricing";
 import Purchase from "./Components/Purchase/Purchase";
 import Registration from "./Components/Registration/Registration";
@@ -43,6 +45,8 @@ function App() {
         ></Route>
         <Route path="/log-in" element={<LogIn />}></Route>
         <Route path="/registration" element={<Registration />}></Route>
+        <Route path="/blogs" element={<BlogsMain />}></Route>
+        <Route path="/my-portfolio" element={<MyPortfolioMain />}></Route>
         <Route path="/dashboard" element={<DashBoard />}>
           <Route index element={<ViewProfile />} />
           <Route path="view-profile" element={<ViewProfile />} />

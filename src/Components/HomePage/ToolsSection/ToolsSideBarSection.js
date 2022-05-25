@@ -207,7 +207,7 @@ const ToolsSideBarSection = () => {
             <div className="lg:col-span-3">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-white">
-                  <span className="hidden sm:inline"> Showing </span>6 of 12
+                  <span className="hidden sm:inline"> Showing </span>0 of 0
                   Products
                 </p>
 
