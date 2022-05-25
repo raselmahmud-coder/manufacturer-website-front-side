@@ -4,7 +4,7 @@ import ToolSingle from "./ToolSingle";
 
 const ToolsMainSection = () => {
   const [tools, setTools] = useState([]);
-  console.log("tools", tools);
+  // console.log("tools", tools);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);

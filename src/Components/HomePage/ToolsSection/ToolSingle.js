@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const ToolSingle = (props) => {
   const { _id, name, price, quantity, image, description } = props.singleTool;
-  console.log("hello", name);
+  // console.log("hello", name);
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate(`/purchase/${_id}`);
