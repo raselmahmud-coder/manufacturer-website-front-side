@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { SpinnerCircular } from "spinners-react";
-import DeleteConfirmation from "./DeleteConfirmation";
-import DoctorsRow from "./DoctorsRow";
+// import DeleteConfirmation from "./DeleteConfirmation";
 
 const ManageOrders = () => {
   const [deleteConfirm, setDeleteConfirm] = useState({
@@ -15,7 +14,7 @@ const ManageOrders = () => {
     isLoading,
     refetch,
   } = useQuery("doctors", () =>
-    fetch(`http://localhost:5000/doctors`, {
+    fetch(``, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -50,19 +49,19 @@ const ManageOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {doctors.map((doctor) => (
+            {/* {doctors.map((doctor) => (
               <DoctorsRow
                 key={doctor._id}
                 doctor={doctor}
                 handleConfirming={handleConfirming}
               />
-            ))}
+            ))} */}
           </tbody>
         </table>
       </div>
-      {deleteConfirm.isShow && (
+      {/* {deleteConfirm.isShow && (
         <DeleteConfirmation refetch={refetch} deleteConfirm={deleteConfirm} setDeleteConfirm={setDeleteConfirm}></DeleteConfirmation>
-      )}
+      )} */}
     </>
   );
 };

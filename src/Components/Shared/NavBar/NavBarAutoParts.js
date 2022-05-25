@@ -1,5 +1,6 @@
+import axios from "axios";
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,8 +10,8 @@ import logo from "../../../images/logo.png";
 const NavBarAutoParts = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  // console.log("from nav bar", user?.photoURL);
-  // console.log(error);
+  const [customUser, setCustomUser] = useState([]);
+
   if (error) {
     toast.error(`from nav ${error}`, {
       toastId: "nav-error",
@@ -36,11 +37,13 @@ const NavBarAutoParts = () => {
         <Link to={"/services"}>Services</Link>
       </li>
       {loading && (
-        <SpinnerCircular
-          speed={120}
-          color={"#0FCFEC"}
-          style={{ margin: "0px auto", display: "block" }}
-        />
+        <li>
+          <SpinnerCircular
+            speed={120}
+            color={"#0FCFEC"}
+            style={{ margin: "0px auto", display: "block" }}
+          />
+        </li>
       )}
       {!user && (
         <li>
@@ -50,6 +53,16 @@ const NavBarAutoParts = () => {
     </>
   );
 
+  if (user?.email) {
+    axios
+      .get(`http://localhost:5000/user/${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
+      .then((res) => setCustomUser(res.data));
+  }
+  // console.log("user",customUser[0]?.role);
   return (
     <>
       <div className="navbar bg-base-100">
@@ -155,12 +168,33 @@ const NavBarAutoParts = () => {
                       <span className="badge">New</span>
                     </Link>
                   </li>
-                  <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
-                    <Link to="/dashboard/my-orders">My Orders</Link>
-                  </li>
-                  <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
-                    <Link to="/dashboard/add-review">Add Review</Link>
-                  </li>
+                  {customUser[0]?.role === "admin" ? (
+                    <>
+                      <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
+                        <Link to="/dashboard/manage-users">Manage Users</Link>
+                      </li>
+                      <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
+                        <Link to="/dashboard/add-product">Add A Product</Link>
+                      </li>
+                      <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
+                        <Link to="/dashboard/manage-products">
+                          Manage Products
+                        </Link>
+                      </li>
+                      <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
+                        <Link to="/dashboard/manage-orders">Manage Orders</Link>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
+                        <Link to="/dashboard/my-orders">My Orders</Link>
+                      </li>
+                      <li className="justify-between border-2 border-lime-400 rounded-lg mt-2">
+                        <Link to="/dashboard/add-review">Add Review</Link>
+                      </li>
+                    </>
+                  )}
                   <li className="mt-2 border-2 border-lime-400 rounded-lg capitalize">
                     <span>{user?.displayName || "Doesn't Provide name"}</span>
                   </li>

@@ -5,6 +5,10 @@ import About from "./Components/AboutPage/About";
 import Contact from "./Components/ContactPage/Contact";
 import AddReview from "./Components/DashBoard/AddReview";
 import DashBoard from "./Components/DashBoard/DashBoard";
+import AddAProduct from "./Components/DashBoard/ManageAdmin/AddAProduct";
+import ManageOrders from "./Components/DashBoard/ManageAdmin/ManageOrders";
+import ManageProducts from "./Components/DashBoard/ManageAdmin/ManageProducts";
+import ManageUsers from "./Components/DashBoard/ManageAdmin/ManageUsers";
 import MyOrders from "./Components/DashBoard/MyOrders";
 import Payment from "./Components/DashBoard/Payment/Payment";
 import ViewProfile from "./Components/DashBoard/ViewProfile";
@@ -45,6 +49,10 @@ function App() {
           <Route path="my-orders" element={<MyOrders />} />
           <Route path="payment/:id" element={<Payment />} />
           <Route path="add-review" element={<AddReview />} />
+          <Route path="add-product" element={<AddAProduct />} />
+          <Route path="manage-users" element={<ManageUsers />} />
+          <Route path="manage-products" element={<ManageProducts />} />
+          <Route path="manage-orders" element={<ManageOrders />} />
         </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
