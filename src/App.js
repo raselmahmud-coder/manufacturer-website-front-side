@@ -6,6 +6,7 @@ import Contact from "./Components/ContactPage/Contact";
 import AddReview from "./Components/DashBoard/AddReview";
 import DashBoard from "./Components/DashBoard/DashBoard";
 import MyOrders from "./Components/DashBoard/MyOrders";
+import Payment from "./Components/DashBoard/Payment/Payment";
 import ViewProfile from "./Components/DashBoard/ViewProfile";
 import HomePage from "./Components/HomePage/HomePage";
 import LogIn from "./Components/LogIn/LogIn";
@@ -42,6 +43,7 @@ function App() {
           <Route index element={<ViewProfile />} />
           <Route path="view-profile" element={<ViewProfile />} />
           <Route path="my-orders" element={<MyOrders />} />
+          <Route path="payment/:id" element={<Payment />} />
           <Route path="add-review" element={<AddReview />} />
         </Route>
         <Route path="*" element={<NotFound />}></Route>

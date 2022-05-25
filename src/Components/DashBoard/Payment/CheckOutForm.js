@@ -4,42 +4,42 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
 
-const CheckOutForm = ({ appointment }) => {
-  const { _id, price, patient, patientName } = appointment;
+const CheckOutForm = ({ order }) => {
+  const { _id, productPrice, productId, productName, userName, userEmail } =
+    order;
   const stripe = useStripe();
   const elements = useElements();
-  const [loadingSpinner, setLoadingSpinner] = useState(false); 
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
   const navigate = useNavigate();
   const [clientSecret, setClientSecret] = useState("");
   useEffect(() => {
-    setLoadingSpinner(true);
-    if (price) {
+    // setLoadingSpinner(true);
+    if (productPrice) {
+      console.log(productPrice, "price");
       fetch(`http://localhost:5000/create-payment-intent`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
-        body: JSON.stringify({ price }),
+        body: JSON.stringify({ productPrice }),
       })
         .then((res) => res.json())
         .then((data) => {
           setClientSecret(data.clientSecret);
+          console.log("expected client secret", data);
           setLoadingSpinner(false);
         });
     }
-  }, [price]);
+  }, [productPrice]);
 
   const handleSubmit = async (event) => {
     setLoadingSpinner(true);
     event.preventDefault();
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
       return;
     }
-    // Get a reference to a mounted CardElement. Elements knows how
-    // to find your CardElement because there can only ever be one of
+
     // each type of element.
     const card = elements.getElement(CardElement);
     if (card == null) {
@@ -51,14 +51,14 @@ const CheckOutForm = ({ appointment }) => {
         payment_method: {
           card: card,
           billing_details: {
-            name: patientName,
-            email: patient,
+            name: userName,
+            email: userEmail,
           },
         },
       });
     const payment = {
-      appointment: _id,
       transactionId: paymentIntent.id,
+      paymentStatus: "paid",
     };
     if (intentError) {
       setLoadingSpinner(false);
@@ -67,7 +67,7 @@ const CheckOutForm = ({ appointment }) => {
       });
     } else {
       // payment success store on database
-      fetch(`http://localhost:5000/booking/${_id}`, {
+      fetch(`http://localhost:5000/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -77,18 +77,22 @@ const CheckOutForm = ({ appointment }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          setLoadingSpinner(false);
-          toast.success(
-            `Congrats! payment id is ${paymentIntent.id} please check your mail for details`,
-            {
-              toastId: "stripe-success",
-              theme: "colored",
-            }
-          );
-          navigate("/dashboard")
+          console.log("expecter order update info", data);
+          if (data.acknowledged) {
+            elements.getElement(CardElement).clear();
+            setLoadingSpinner(false);
+            toast.success(
+              `Payment is Success! Please check your mail for details`,
+              {
+                toastId: "stripe-success",
+                theme: "colored",
+              }
+            );
+            
+              navigate("/dashboard/my-orders");
+          }
         });
     }
-    event.reset();
   };
   return (
     <form onSubmit={handleSubmit}>

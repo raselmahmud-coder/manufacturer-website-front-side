@@ -10,11 +10,11 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
   const { id } = useParams();
-  const [appointment, setAppointment] = useState({});
+  const [order, setOrder] = useState({});
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true);
-    const url = `http://localhost:5000/booking/${id}`;
+    // setLoading(true);
+    const url = `http://localhost:5000/order/${id}`;
     if (id) {
       fetch(url, {
         method: "GET",
@@ -24,7 +24,8 @@ const Payment = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          setAppointment(data);
+          console.log(data);
+          setOrder(data);
           setLoading(false);
         });
     }
@@ -45,21 +46,18 @@ const Payment = () => {
       <div className="grid lg:grid-cols-2 my-20">
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
-            <h2 className="card-title">Pay for {appointment?.treatment}</h2>
+            <h2 className="card-title">Pay for {order?.productName}</h2>
             <p>
-              Your appointment on
-              <span className="text-purple-500">
-                {" "}
-                {appointment?.date}{" "}
-              </span> at {appointment?.slot}
+              Your order quantity
+              <span className="text-purple-500"> {order?.quantity}</span>
             </p>
-            <p>Payment : $ {appointment?.price}</p>
+            <p>Payment : $ {order?.productPrice}</p>
           </div>
         </div>
         <div className="card shadow-xl bg-base-100">
           <div className="card-body">
             <Elements stripe={stripePromise}>
-              <CheckOutForm appointment={appointment} />
+              <CheckOutForm order={order} />
             </Elements>
           </div>
         </div>

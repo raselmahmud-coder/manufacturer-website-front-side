@@ -56,8 +56,7 @@ const MyOrders = () => {
     <>
       <h1 className="text-xl text-teal-300 text-center my-3 capitalize">
         You have order
-        {myOrders.length > 1 && "s"}{' '}
-        {myOrders.length}
+        {myOrders.length > 1 && "s"} {myOrders.length}
       </h1>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
@@ -102,30 +101,27 @@ const MyOrders = () => {
                   <td>
                     {!order.paymentStatus ? (
                       <Link
-                        to={`payment/${order?._id}`}
+                        to={`/dashboard/payment/${order?._id}`}
                         className="btn btn-secondary btn-xs"
                       >
                         UnPaid
                       </Link>
                     ) : (
-                      <label className="label cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked="checked"
-                          readOnly
-                          className="checkbox checkbox-primary focus:outline-none hover:cursor-none"
-                        />
+                      <label className="label">
+                        Trx ID: {order?.transactionId}
                       </label>
                     )}
                   </td>
                   <td>
-                    <label
-                      htmlFor="my-modal-3"
-                      className="btn btn-ghost btn-xs"
-                      onClick={() => handleDelete(order._id)}
-                    >
-                      Cancel
-                    </label>
+                    {!order.paymentStatus && (
+                      <label
+                        htmlFor="my-modal-3"
+                        className="btn btn-ghost btn-xs"
+                        onClick={() => handleDelete(order._id)}
+                      >
+                        Cancel
+                      </label>
+                    )}
                   </td>
                 </tr>
               );

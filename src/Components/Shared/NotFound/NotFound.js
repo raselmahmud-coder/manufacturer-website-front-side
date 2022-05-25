@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import notFound from "../../../images/not-found.gif";
 const NotFound = () => {
   return (
     <div className="relative p-8 text-center border border-gray-200 rounded-lg">
-      <h2 className="text-2xl font-medium">There's nothing here...</h2>
-
-      <p className="mt-4 text-sm text-gray-500">
-        Hits a right path will appear here, try again one!
-      </p>
+      <div className="flex justify-center">
+        <img className="image-full" src={notFound} alt="" />
+      </div>
 
       <Link
         to="/"
