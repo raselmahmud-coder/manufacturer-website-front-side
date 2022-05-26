@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
 import { auth } from "../../../firebase.init";
 import logo from "../../../images/logo.png";
+import placeholder from "../../../images/placeholder.jpg"
 const NavBarAutoParts = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
@@ -147,7 +148,7 @@ const NavBarAutoParts = () => {
                       src={
                         user?.photoURL
                           ? user?.photoURL
-                          : `https://api.lorem.space/image/face?hash=33791`
+                          : `${placeholder}`
                       }
                       alt="profile"
                     />

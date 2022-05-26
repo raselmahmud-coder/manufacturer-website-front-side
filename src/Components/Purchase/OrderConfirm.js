@@ -110,17 +110,17 @@ const OrderConfirm = ({ count, tool, setShowModal }) => {
               placeholder="Phone Number"
               className="mb-2 rounded w-full text-green-400 text-[16px]"
             />
-            <button type="submit" className="btn bg-orange-400">
-              {loading ? (
-                <SpinnerCircular
-                  speed={120}
-                  color={"#0FCFEC"}
-                  style={{ margin: "0px auto", display: "block" }}
-                />
-              ) : (
+            {loading ? (
+              <SpinnerCircular
+                speed={120}
+                color={"#0FCFEC"}
+                style={{ margin: "0px auto", display: "block" }}
+              />
+            ) : (
+              <button type="submit" className="btn bg-orange-400">
                 "Confirm Order"
-              )}
-            </button>
+              </button>
+            )}
           </form>
         </div>
       </div>

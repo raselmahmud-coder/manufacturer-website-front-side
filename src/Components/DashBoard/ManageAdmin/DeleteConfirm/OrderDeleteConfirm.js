@@ -1,31 +1,24 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const UserDeleteModal = ({
-  setShowConfirm,
-  setLoader,
-  showConfirm,
-  refetch,
-}) => {
-  // console.log("props", props);
+const OrderDeleteConfirm = ({ setShowConfirm, showConfirm, refetch }) => {
+  console.log("props", showConfirm);
 
   const handleDeleteConfirm = () => {
-    setLoader(true);
     // ask delete confirm
     try {
-      fetch(`http://localhost:5000/user/${showConfirm?.email}`, {
+      fetch(`http://localhost:5000/order/${showConfirm?.id}`, {
         method: "delete",
         // headers: `Bearer ${localStorage.getItem("accessToken")}`, getting error
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
-            toast.success(`You have a user deleted`, {
-              toastId: "user-deleted",
-            });
-            setShowConfirm({ isShow: false});
-            setLoader(false);
+            setShowConfirm({ isShow: false });
             refetch();
+            toast.success(`You have a order deleted`, {
+              toastId: "order-deleted",
+            });
           }
         });
     } catch (error) {
@@ -57,4 +50,4 @@ const UserDeleteModal = ({
   );
 };
 
-export default UserDeleteModal;
+export default OrderDeleteConfirm;

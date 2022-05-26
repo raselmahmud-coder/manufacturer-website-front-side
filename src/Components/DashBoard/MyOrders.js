@@ -67,7 +67,7 @@ const MyOrders = () => {
               <th>Email</th>
               <th>Quantity Unit</th>
               <th>Price</th>
-              <th>Payment</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -107,8 +107,10 @@ const MyOrders = () => {
                         UnPaid
                       </Link>
                     ) : (
-                      <label className="label">
+                      <label className="label text-xl">
                         Trx ID: {order?.transactionId}
+                        <span className="text-orange-400 uppercase">{order.paymentStatus &&
+                          order?.paymentStatus}</span>
                       </label>
                     )}
                   </td>

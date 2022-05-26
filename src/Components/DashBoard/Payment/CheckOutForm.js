@@ -68,7 +68,7 @@ const CheckOutForm = ({ order }) => {
     } else {
       // payment success store on database
       fetch(`http://localhost:5000/order/${_id}`, {
-        method: "PATCH",
+        method: "PUT",
         headers: {
           "content-type": "application/json",
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
