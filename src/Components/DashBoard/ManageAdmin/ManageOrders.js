@@ -87,7 +87,9 @@ const ManageOrders = () => {
                 <td>{order?.userName}</td>
                 <td>{order?.email}</td>
                 <td>{order?.productName}</td>
-                <td>{order?.paymentStatus}</td>
+                <td>
+                  {order?.paymentStatus ? order?.paymentStatus : "UnPaid"}
+                </td>
                 <td>{order?.transactionId}</td>
                 <td>
                   <button
@@ -100,10 +102,7 @@ const ManageOrders = () => {
                     Shipped
                   </button>
                   <label
-                    disabled={
-                      order?.paymentStatus === "pending" ||
-                      order?.paymentStatus === "shipped"
-                    }
+                    disabled={order?.paymentStatus === "pending"}
                     htmlFor="my-modal-3"
                     className="w-1/5 lg:w-1/3 btn bg-red-500"
                     onClick={() => handleDelete(order._id)}
@@ -121,6 +120,8 @@ const ManageOrders = () => {
           showConfirm={showConfirm}
           setShowConfirm={setShowConfirm}
           refetch={refetch}
+          loader={loader}
+          setLoader={setLoader}
         />
       )}
     </>

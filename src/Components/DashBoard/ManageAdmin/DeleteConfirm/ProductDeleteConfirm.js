@@ -2,7 +2,7 @@ import React from "react";
 import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
 
-const OrderDeleteConfirm = ({
+const ProductDeleteConfirm = ({
   setShowConfirm,
   showConfirm,
   refetch,
@@ -15,7 +15,7 @@ const OrderDeleteConfirm = ({
     setLoader(true);
     // ask delete confirm
     try {
-      fetch(`http://localhost:5000/order/${showConfirm?.id}`, {
+      fetch(`http://localhost:5000/tool/${showConfirm?.id}`, {
         method: "delete",
         // headers: `Bearer ${localStorage.getItem("accessToken")}`, getting error
       })
@@ -25,8 +25,8 @@ const OrderDeleteConfirm = ({
             setLoader(false);
             setShowConfirm({ isShow: false });
             refetch();
-            toast.success(`You have a order deleted`, {
-              toastId: "order-deleted",
+            toast.success(`You have a tool deleted`, {
+              toastId: "tool-deleted",
             });
           }
         });
@@ -70,4 +70,4 @@ const OrderDeleteConfirm = ({
   );
 };
 
-export default OrderDeleteConfirm;
+export default ProductDeleteConfirm;
