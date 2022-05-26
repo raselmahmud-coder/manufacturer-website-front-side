@@ -32,6 +32,7 @@ const NavBarAutoParts = () => {
       </li>
       <li>
         <Link to={"/blogs"}>Blogs</Link>
+      </li>
       <li>
         <Link to={"/about"}>About Us</Link>
       </li>
@@ -40,7 +41,6 @@ const NavBarAutoParts = () => {
       </li>
       <li>
         <Link to={"/services"}>Services</Link>
-      </li>
       </li>
       {loading && (
         <li>
