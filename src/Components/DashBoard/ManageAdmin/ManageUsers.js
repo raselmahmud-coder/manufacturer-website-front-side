@@ -12,6 +12,7 @@ const ManageUsers = () => {
     data: users,
     isLoading,
     refetch,
+    status
   } = useQuery("users", () =>
     fetch(`http://localhost:5000/users`, {
       method: "get",
@@ -20,7 +21,7 @@ const ManageUsers = () => {
       },
     }).then((res) => res.json())
   );
-  if (isLoading || loader) {
+  if (isLoading || loader || status.loading) {
     return (
       <>
         <div className="flex justify-center">

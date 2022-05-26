@@ -23,6 +23,7 @@ import Services from "./Components/ServicesPage/Services";
 import Footer from "./Components/Shared/Footer/Footer";
 import NavBarAutoParts from "./Components/Shared/NavBar/NavBarAutoParts";
 import NotFound from "./Components/Shared/NotFound/NotFound";
+import AdminRequired from "./Components/Shared/RequiredAdmin/AdminRequired";
 import RequiredAuth from "./Components/Shared/RequiredAuth/RequiredAuth";
 
 function App() {
@@ -47,7 +48,14 @@ function App() {
         <Route path="/registration" element={<Registration />}></Route>
         <Route path="/blogs" element={<BlogsMain />}></Route>
         <Route path="/my-portfolio" element={<MyPortfolioMain />}></Route>
-        <Route path="/dashboard" element={<DashBoard />}>
+        <Route
+          path="/dashboard"
+          element={
+            <RequiredAuth>
+              <DashBoard />
+            </RequiredAuth>
+          }
+        >
           <Route index element={<ViewProfile />} />
           <Route path="view-profile" element={<ViewProfile />} />
           <Route path="my-orders" element={<MyOrders />} />

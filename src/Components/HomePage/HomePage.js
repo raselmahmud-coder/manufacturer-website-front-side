@@ -15,7 +15,7 @@ const HomePage = () => {
       <Reviews />
       <DiscountSection />
       <TrustedInProduction />
-      {/* <BusinessSummary /> */}
+      <BusinessSummary />
       <LatestPosts />
     </>
   );

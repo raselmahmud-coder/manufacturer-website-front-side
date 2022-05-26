@@ -7,7 +7,7 @@ const useAdmin = (user) => {
     const email = user?.email;
     // console.log("inside useAdmin", email);
     if (email) {
-      fetch(`https://doctors-portal-rm.herokuapp.com/admin/${email}`, {
+      fetch(`http://localhost:5000/user/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -16,13 +16,13 @@ const useAdmin = (user) => {
       })
         .then((res) => res.json())
           .then((data) => {
-              console.log("from use admin",data);
+              console.log("from use admin hook",data);
               setAdmin(data.admin)
-              setAdminLoading(false)
+              // setAdminLoading(false)
           });
     }
   }, [user]);
-  return [admin, adminLoading];
+  return [admin, adminLoading, setAdminLoading];
 };
 
 export default useAdmin;
