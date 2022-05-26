@@ -1,17 +1,13 @@
-# Getting Started with King Furniture
+# Getting Started with Auto Parts Website
 
-This website live link is [Here](https://assignment-11-b89a5.web.app/).
+This website live link is [Here](https://autoparts-assign-12.web.app/).
 
-This is Stack OverFlow link [Click Here](https://stackoverflow.com/questions/72152593/how-to-pass-onclick-function-in-sibling-components-using-functional-components/72152679#72152679)
-
-This is client side code link [Click Here](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-raselmahmud22)
-
-This is server side code link [Click Here](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-raselmahmud22)
+This is client side code link [Click Here](https://github.com/programming-hero-web-course1/manufacturer-website-client-side-raselmahmud22)
 
 
 Short Description:
 
-This is website purpose of all furniture products show. user can registration using email and any social profile 
+This is website purpose of all auto parts tools show. user can registration using email and any social profile and purchase their needed tools.
 
 
 ## Available Functionality

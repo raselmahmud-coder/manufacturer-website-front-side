@@ -4,8 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
 import { auth } from "../../firebase.init";
-import useToken from "../Shared/Hooks/useToken";
 import SocialLogIn from "./SocialLogIn";
+import UseToken from "../Shared/Hooks/UseToken";
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -13,12 +13,12 @@ const LogIn = () => {
   const from = location.state?.from?.pathname || "/";
   const [signInWithEmailAndPassword, logInUser, loadingUser, errorUser] =
     useSignInWithEmailAndPassword(auth);
-  const [token] = useToken(logInUser);
   useEffect(() => {
-    if (token && logInUser) {
+    if (logInUser) {
+       <UseToken user={logInUser}/>;
       navigate(from, { replace: true });
     }
-  }, [navigate, from, token, logInUser]);
+  }, [navigate, from, logInUser]);
 
   if (loadingUser) {
     return (

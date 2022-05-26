@@ -10,17 +10,18 @@ import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
 import { auth } from "../../firebase.init";
 import SocialLogIn from "../LogIn/SocialLogIn";
+import UseToken from "../Shared/Hooks/UseToken";
 const Registration = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
   const onSubmit = async (data) => {
     const displayName = data.name;
     const email = data.email;
@@ -33,7 +34,10 @@ const Registration = () => {
       id: "updated",
     });
   };
-  console.log("custom email user",user);
+  if (user) {
+    // console.log("custom email user", user);
+    return <UseToken user={user}/>;
+  }
   if (loading || updating) {
     return (
       <>
@@ -47,7 +51,7 @@ const Registration = () => {
   }
   if (error || updateError) {
     toast.error(`Error ${error}`, {
-      id: "user-error",
+      toastId: "userError",
     });
   }
 

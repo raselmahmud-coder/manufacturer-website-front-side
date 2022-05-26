@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
+import UserDeleteModal from "./DeleteConfirm/UserDeleteModal";
 
 const ManageUsers = () => {
   const [loader, setLoader] = useState(false);
+  const [showConfirm, setShowConfirm] = useState({ isShow: false, email: "" });
   const {
     data: users,
     isLoading,
@@ -32,47 +34,27 @@ const ManageUsers = () => {
       </>
     );
   }
-  const handleForm = (e, email) => {
-    setLoader(true)
-    e.preventDefault();
-    const option = e.target.selecting.value;
-    if (option === "makeAdmin") {
-      console.log("for admin");
-      axios
-        .patch(`http://localhost:5000/user/${email}`, {
-          headers: `Bearer ${localStorage.getItem("accessToken")}`,
-        })
-        .then((res) => {
-          if (res.data.acknowledged) {
-            toast.success(`You have a new admin`, {
-              toastId: "new-admin",
-            });
-            setLoader(false)
-            refetch();
-          }
-        });
-      } else if (option === "delete") {
-    try {
-      fetch(`http://localhost:5000/user/${email}`, {
-        method:"delete",
-        // headers: `Bearer ${localStorage.getItem("accessToken")}`, getting error
+  // for delete handle
+  const handleDelete = (email) => {
+    setShowConfirm({ isShow: true, email: email });
+  };
+  // for make admin handle
+  const handleMakeAdmin = (email) => {
+    setLoader(true);
+    console.log("for admin");
+    axios
+      .patch(`http://localhost:5000/user/${email}`, {
+        headers: `Bearer ${localStorage.getItem("accessToken")}`,
       })
-      .then((res) =>res.json()).then(data => {
-            if (data.acknowledged) {
-              toast.success(`You have a user deleted`, {
-                toastId: "user-deleted",
-              });
-              setLoader(false)
-              refetch();
-            }
-        // console.log("de;ete", data);
-        
-      })
-    } catch (error) {
-      console.log("error",error);
-    }
-      console.log("for delete");
-    }
+      .then((res) => {
+        if (res.data.acknowledged) {
+          toast.success(`You have a new admin`, {
+            toastId: "new-admin",
+          });
+          setLoader(false);
+          refetch();
+        }
+      });
   };
 
   return (
@@ -97,27 +79,36 @@ const ManageUsers = () => {
                 <td>{user.name}</td>
                 <td>{user?.role ? user.role : "User"}</td>
                 <td>
-                  <form onSubmit={(e) => handleForm(e, user.email)}>
-                    <select
-                      id="selecting"
-                      className="select select-bordered w-1/2"
-                    >
-                      <option value="makeAdmin">Make Admin</option>
-                      <option value="delete">Delete</option>
-                    </select>
-                    <button
-                      type="submit"
-                      className="w-1/5 lg:w-1/3 btn btn-primary"
-                    >
-                      Save
-                    </button>
-                  </form>
+                  <button
+                    disabled={user?.email === "raselmahmud98262@gmail.com" || user.role === 'admin'}
+                    onClick={() => handleMakeAdmin(user.email)}
+                    className="w-1/5 lg:w-1/3 btn btn-primary"
+                  >
+                    Make Admin
+                  </button>
+                  <label
+                    disabled={user?.email === "raselmahmud98262@gmail.com"}
+                    htmlFor="my-modal-3"
+                    className="w-1/5 lg:w-1/3 btn bg-red-500"
+                    onClick={() => handleDelete(user.email)}
+                  >
+                    Delete
+                  </label>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {showConfirm.isShow && (
+        <UserDeleteModal
+          showConfirm={showConfirm}
+          setShowConfirm={setShowConfirm}
+          setLoader={setLoader}
+          loader={loader}
+          refetch={refetch}
+        />
+      )}
     </>
   );
 };

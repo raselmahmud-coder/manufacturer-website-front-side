@@ -4,24 +4,25 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
 import { auth } from "../../firebase.init";
-import useToken from "../Shared/Hooks/useToken";
+import UseToken from "../Shared/Hooks/UseToken";
 
 const SocialLogIn = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
   const location = useLocation();
-  const [token] = useToken(user);
   // const [user, loading, error] = useAuthState(auth);
   const from = location.state?.from?.pathname || "/";
   useEffect(() => {
-    if (token && user) {
+    if (user) {
+      <UseToken user={user} />;
       navigate(from, { replace: true });
     }
-  }, [from, navigate, user, token]);
+  }, [from, navigate, user]);
+
   // console.log("user from social", user);
   const handleGoogle = async () => {
     await signInWithGoogle();
-    console.log("inside goole1111111");
+    // console.log("inside goole1111111");
   };
   if (loading) {
     return (

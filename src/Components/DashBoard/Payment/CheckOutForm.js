@@ -58,7 +58,7 @@ const CheckOutForm = ({ order }) => {
       });
     const payment = {
       transactionId: paymentIntent.id,
-      paymentStatus: "paid",
+      paymentStatus: "pending",
     };
     if (intentError) {
       setLoadingSpinner(false);
