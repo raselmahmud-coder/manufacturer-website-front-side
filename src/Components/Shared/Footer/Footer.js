@@ -39,9 +39,7 @@ const Footer = () => {
               <span className="block w-32 h-10 mx-auto bg-gray-700 rounded-lg lg:ml-0"></span>
 
               <p className="mt-4 text-center text-white lg:text-left lg:text-lg">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Praesentium natus quod eveniet aut perferendis distinctio iusto
-                repudiandae, provident velit earum?
+                visit our mail list to get update information about our company
               </p>
 
               <div className="flex justify-center gap-4 mt-6 text-gray-300 lg:justify-start">

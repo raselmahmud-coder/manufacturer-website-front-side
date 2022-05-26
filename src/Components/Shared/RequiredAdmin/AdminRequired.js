@@ -3,12 +3,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
 import { SpinnerCircular } from "spinners-react";
-import auth from "../../../firebase.init";
 import useAdmin from "../../../hooks/useAdmin";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../../firebase.init";
 
-const RequiredAdmin = ({ children }) => {
-  const [user, loading, error] = useAuthState(auth);
+const AdminRequired = ({ children }) => {
+  const [user, loading, error] = useAuthState(auth)
   const [admin, adminLoading] = useAdmin(user);
 
     console.log(admin);
@@ -36,4 +36,4 @@ const RequiredAdmin = ({ children }) => {
   return children;
 };
 
-export default RequiredAdmin;
+export default AdminRequired;
