@@ -16,7 +16,7 @@ const CheckOutForm = ({ order }) => {
     // setLoadingSpinner(true);
     if (productPrice) {
       console.log(productPrice, "price");
-      fetch(`http://localhost:5000/create-payment-intent`, {
+      fetch(`https://auto-parts-rm.herokuapp.com/create-payment-intent`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -67,7 +67,7 @@ const CheckOutForm = ({ order }) => {
       });
     } else {
       // payment success store on database
-      fetch(`http://localhost:5000/order/${_id}`, {
+      fetch(`https://auto-parts-rm.herokuapp.com/order/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

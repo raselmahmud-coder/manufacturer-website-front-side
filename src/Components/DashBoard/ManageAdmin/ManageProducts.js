@@ -38,7 +38,7 @@ const ManageProducts = () => {
   const handleEditTool = (_id) => {
     // setLoader(true);
     const payment = { paymentStatus: "shipped" };
-    fetch(`http://localhost:5000/order/${_id}`, {
+    fetch(`https://auto-parts-rm.herokuapp.com/order/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

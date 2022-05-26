@@ -18,7 +18,7 @@ const OrderConfirm = ({ count, tool, setShowModal }) => {
     const phone = e.target.phone.value;
     axios({
       method: "post",
-      url: `http://localhost:5000/order`,
+      url: `https://auto-parts-rm.herokuapp.com/order`,
       data: {
         productId: _id,
         productName: name,
@@ -35,7 +35,7 @@ const OrderConfirm = ({ count, tool, setShowModal }) => {
       if (res.data.acknowledged) {
         const afterOrderQuantity = quantity - count;
         axios
-          .put(`http://localhost:5000/tool/${_id}`, {
+          .put(`https://auto-parts-rm.herokuapp.com/tool/${_id}`, {
             quantity: afterOrderQuantity,
           })
           .then((res) => {

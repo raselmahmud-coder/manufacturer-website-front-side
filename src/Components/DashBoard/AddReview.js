@@ -14,7 +14,7 @@ const AddReview = () => {
     // console.log(rating, message);
     const review = { rating, message, name };
     axios
-      .post(`http://localhost:5000/add-review`, {
+      .post(`https://auto-parts-rm.herokuapp.com/add-review`, {
         review: review,
       })
       .then((res) => {

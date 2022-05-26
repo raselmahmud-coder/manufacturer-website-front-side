@@ -15,7 +15,7 @@ const OrderDeleteConfirm = ({
     setLoader(true);
     // ask delete confirm
     try {
-      fetch(`http://localhost:5000/order/${showConfirm?.id}`, {
+      fetch(`https://auto-parts-rm.herokuapp.com/order/${showConfirm?.id}`, {
         method: "delete",
         // headers: `Bearer ${localStorage.getItem("accessToken")}`, getting error
       })

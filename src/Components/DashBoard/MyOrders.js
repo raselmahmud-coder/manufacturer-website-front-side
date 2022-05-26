@@ -15,7 +15,7 @@ const MyOrders = () => {
   useEffect(() => {
     setLoading(true);
     if (user?.email) {
-      fetch(`http://localhost:5000/orders/${user.email}`, {
+      fetch(`https://auto-parts-rm.herokuapp.com/orders/${user.email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

@@ -16,7 +16,7 @@ const ManageOrders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/admin-orders/${user?.email}`, {
+    fetch(`https://auto-parts-rm.herokuapp.com/admin-orders/${user?.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -40,7 +40,7 @@ const ManageOrders = () => {
     setLoader(true);
     // payment status update  and store on database
     const payment = { paymentStatus: "shipped", transactionId: transactionId };
-    fetch(`http://localhost:5000/order/${_id}`, {
+    fetch(`https://auto-parts-rm.herokuapp.com/order/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

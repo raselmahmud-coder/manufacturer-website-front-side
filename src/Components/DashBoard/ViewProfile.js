@@ -11,7 +11,7 @@ const ViewProfile = () => {
   const email = user?.email;
 
   const { data, isLoading, refetch, status } = useQuery("users", () =>
-    fetch(`http://localhost:5000/user/${email}`, {
+    fetch(`https://auto-parts-rm.herokuapp.com/user/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -30,7 +30,7 @@ const ViewProfile = () => {
     if (email) {
       console.log(degree, location, profileLink, phone);
       axios
-        .patch(`http://localhost:5000/update-profile/${email}`, {
+        .patch(`https://auto-parts-rm.herokuapp.com/update-profile/${email}`, {
           data: {
             degree: degree,
             location: location,

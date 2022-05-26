@@ -14,7 +14,7 @@ const Payment = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     // setLoading(true);
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://auto-parts-rm.herokuapp.com/order/${id}`;
     if (id) {
       fetch(url, {
         method: "GET",

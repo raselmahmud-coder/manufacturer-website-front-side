@@ -11,7 +11,7 @@ const UseToken = ({user}) => {
   if (email && name) {
       console.log("inside token",user.user.email);
       console.log("inside token-----------",user.user.displayName);
-      fetch(`http://localhost:5000/users/${email}`, {
+      fetch(`https://auto-parts-rm.herokuapp.com/users/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

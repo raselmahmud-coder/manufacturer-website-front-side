@@ -15,7 +15,7 @@ const ProductDeleteConfirm = ({
     setLoader(true);
     // ask delete confirm
     try {
-      fetch(`http://localhost:5000/tool/${showConfirm?.id}`, {
+      fetch(`https://auto-parts-rm.herokuapp.com/tool/${showConfirm?.id}`, {
         method: "delete",
         // headers: `Bearer ${localStorage.getItem("accessToken")}`, getting error
       })

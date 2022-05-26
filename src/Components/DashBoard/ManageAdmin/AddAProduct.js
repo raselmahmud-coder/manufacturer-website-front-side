@@ -15,7 +15,7 @@ const AddAProduct = () => {
   } = useForm();
   const [loading, setLoading] = useState(false);
   /*  const { data: services, isLoading } = useQuery("services", () =>
-        fetch(`http://localhost:5000/services`).then((res) => res.json())
+        fetch(`https://auto-parts-rm.herokuapp.com/services`).then((res) => res.json())
       ); */
   /*     if (isLoading) {
         return (
@@ -58,7 +58,7 @@ const AddAProduct = () => {
           //sent tools object to the database
           if (email) {
             console.log("url", tool);
-            fetch(`http://localhost:5000/tool/${email}`, {
+            fetch(`https://auto-parts-rm.herokuapp.com/tool/${email}`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",
