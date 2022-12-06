@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
 import { auth } from "../../firebase.init";
 import SocialLogIn from "../LogIn/SocialLogIn";
-import UseToken from "../Shared/Hooks/UseToken";
+import setToken from "../Utils/setToken";
 const Registration = () => {
   const {
     register,
@@ -34,10 +34,12 @@ const Registration = () => {
       id: "updated",
     });
   };
-  if (user) {
-    // console.log("custom email user", user);
-    return <UseToken user={user}/>;
-  }
+  useEffect(() => {
+    if (user) {
+      setToken(user);
+    }
+  }, [user]);
+
   if (loading || updating) {
     return (
       <>

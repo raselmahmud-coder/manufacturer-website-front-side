@@ -62,7 +62,7 @@ const NavBarAutoParts = () => {
 
   if (user?.email) {
     axios
-      .get(`https://auto-parts-rm.herokuapp.com/user/${user?.email}`, {
+      .get(`https://manufacturer-auto-parts.onrender.com/user/${user?.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },

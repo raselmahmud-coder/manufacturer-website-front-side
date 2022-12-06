@@ -13,7 +13,7 @@ const UserDeleteModal = ({
     setLoader(true);
     // ask delete confirm
     try {
-      fetch(`https://auto-parts-rm.herokuapp.com/user/${showConfirm?.email}`, {
+      fetch(`https://manufacturer-auto-parts.onrender.com/user/${showConfirm?.email}`, {
         method: "delete",
         // headers: `Bearer ${localStorage.getItem("accessToken")}`, getting error
       })

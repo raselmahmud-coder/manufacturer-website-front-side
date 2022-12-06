@@ -14,7 +14,7 @@ const ManageUsers = () => {
     refetch,
     status
   } = useQuery("users", () =>
-    fetch(`https://auto-parts-rm.herokuapp.com/users`, {
+    fetch(`https://manufacturer-auto-parts.onrender.com/users`, {
       method: "get",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -44,7 +44,7 @@ const ManageUsers = () => {
     setLoader(true);
     console.log("for admin");
     axios
-      .patch(`https://auto-parts-rm.herokuapp.com/user/${email}`, {
+      .patch(`https://manufacturer-auto-parts.onrender.com/user/${email}`, {
         headers: `Bearer ${localStorage.getItem("accessToken")}`,
       })
       .then((res) => {

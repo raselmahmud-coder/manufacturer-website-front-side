@@ -37,7 +37,7 @@ const Purchase = () => {
     }
   }, [count, id, tool?.quantity]);
   if (id) {
-    axios.get(`https://auto-parts-rm.herokuapp.com/tool/${id}`).then((res) => {
+    axios.get(`https://manufacturer-auto-parts.onrender.com/tool/${id}`).then((res) => {
       if (res.status === 200) {
         setLoading(false);
         return setTool(res.data);

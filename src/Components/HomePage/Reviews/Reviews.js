@@ -9,7 +9,7 @@ SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   axios
-    .get(`https://auto-parts-rm.herokuapp.com/reviews`)
+    .get(`https://manufacturer-auto-parts.onrender.com/reviews`)
     .then((res) => setReviews(res.data));
 
   return (

@@ -7,7 +7,7 @@ const useAdmin = (user) => {
     const email = user?.email;
     // console.log("inside useAdmin", email);
     if (email) {
-      fetch(`https://auto-parts-rm.herokuapp.com/user/${email}`, {
+      fetch(`https://manufacturer-auto-parts.onrender.com/user/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

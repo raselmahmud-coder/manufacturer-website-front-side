@@ -1,7 +1,9 @@
 import React from "react";
+import useGetTools from "../../Shared/Hooks/getTools/useGetTools";
 import ToolsMainSection from "./ToolsMainSection";
 
 const ToolsSideBarSection = () => {
+  const [tools] = useGetTools();
   return (
     <>
       <section>
@@ -10,8 +12,7 @@ const ToolsSideBarSection = () => {
             <div className="lg:sticky lg:top-4">
               <details
                 open
-                className="overflow-hidden border border-gray-200 rounded"
-              >
+                className="overflow-hidden border border-gray-200 rounded">
                 <summary className="flex items-center justify-between px-5 py-3 bg-gray-100 lg:hidden">
                   <span className="text-sm font-medium">Toggle Filters</span>
 
@@ -20,8 +21,7 @@ const ToolsSideBarSection = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
+                    stroke="currentColor">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -33,8 +33,7 @@ const ToolsSideBarSection = () => {
 
                 <form
                   action=""
-                  className="border-t border-gray-200 lg:border-t-0"
-                >
+                  className="border-t border-gray-200 lg:border-t-0">
                   <fieldset>
                     <legend className="block w-full px-5 py-3 text-xs font-medium bg-gray-500">
                       Categories
@@ -51,8 +50,7 @@ const ToolsSideBarSection = () => {
 
                         <label
                           htmlFor="car-security"
-                          className="ml-3 text-sm font-medium"
-                        >
+                          className="ml-3 text-sm font-medium">
                           Car Security
                         </label>
                       </div>
@@ -67,8 +65,7 @@ const ToolsSideBarSection = () => {
 
                         <label
                           htmlFor="car-gadgets"
-                          className="ml-3 text-sm font-medium"
-                        >
+                          className="ml-3 text-sm font-medium">
                           Car Gadgets
                         </label>
                       </div>
@@ -83,8 +80,7 @@ const ToolsSideBarSection = () => {
 
                         <label
                           htmlFor="car-accessories"
-                          className="ml-3 text-sm font-medium"
-                        >
+                          className="ml-3 text-sm font-medium">
                           Car Accessories
                         </label>
                       </div>
@@ -92,8 +88,7 @@ const ToolsSideBarSection = () => {
                       <div className="pt-2">
                         <button
                           type="button"
-                          className="text-xs text-white underline"
-                        >
+                          className="text-xs text-white underline">
                           Reset Categories
                         </button>
                       </div>
@@ -117,8 +112,7 @@ const ToolsSideBarSection = () => {
 
                           <label
                             htmlFor="99+"
-                            className="ml-3 text-sm font-medium"
-                          >
+                            className="ml-3 text-sm font-medium">
                             99+
                           </label>
                         </div>
@@ -133,8 +127,7 @@ const ToolsSideBarSection = () => {
 
                           <label
                             htmlFor="599+"
-                            className="ml-3 text-sm font-medium"
-                          >
+                            className="ml-3 text-sm font-medium">
                             599+
                           </label>
                         </div>
@@ -149,8 +142,7 @@ const ToolsSideBarSection = () => {
 
                           <label
                             htmlFor="999+"
-                            className="ml-3 text-sm font-medium"
-                          >
+                            className="ml-3 text-sm font-medium">
                             999+
                           </label>
                         </div>
@@ -165,8 +157,7 @@ const ToolsSideBarSection = () => {
 
                           <label
                             htmlFor="1299+"
-                            className="ml-3 text-sm font-medium"
-                          >
+                            className="ml-3 text-sm font-medium">
                             1299+
                           </label>
                         </div>
@@ -174,8 +165,7 @@ const ToolsSideBarSection = () => {
                         <div className="pt-2">
                           <button
                             type="button"
-                            className="text-xs text-white underline"
-                          >
+                            className="text-xs text-white underline">
                             Reset Price
                           </button>
                         </div>
@@ -187,16 +177,14 @@ const ToolsSideBarSection = () => {
                     <button
                       name="reset"
                       type="button"
-                      className="text-xs font-medium text-white underline rounded"
-                    >
+                      className="text-xs font-medium text-white underline rounded">
                       Reset All
                     </button>
 
                     <button
                       name="commit"
                       type="button"
-                      className="px-5 py-3 text-xs font-medium text-white bg-green-400 rounded"
-                    >
+                      className="px-5 py-3 text-xs font-medium text-white bg-green-400 rounded">
                       Apply Filters
                     </button>
                   </div>
@@ -207,7 +195,8 @@ const ToolsSideBarSection = () => {
             <div className="lg:col-span-3">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-white">
-                  <span className="hidden sm:inline"> Showing </span>0 of 0
+                  <span className="hidden sm:inline"> Showing </span>
+                  {tools?.length} / {tools?.length}
                   Products
                 </p>
 
@@ -219,8 +208,7 @@ const ToolsSideBarSection = () => {
                   <select
                     id="SortBy"
                     name="sort_by"
-                    className="text-sm border-gray-500 rounded"
-                  >
+                    className="text-sm border-gray-500 rounded">
                     <option readOnly>Sort</option>
                     <option value="title-asc">Title, A-Z</option>
                     <option value="title-desc">Title, Z-A</option>
@@ -237,8 +225,5 @@ const ToolsSideBarSection = () => {
     </>
   );
 };
-/* window.addEventListener("resize", () => {
-  const desktopScreen = window.innerWidth < 768;
-  document.querySelector("details").open = !desktopScreen;
-}); */
+
 export default ToolsSideBarSection;

@@ -7,10 +7,10 @@ const ConfirmDeleteModal = ({ showConfirm, setShowConfirm, email, setMyOrders })
   const handleDeleteConfirm = () => {
     if (showConfirm.id) {
       axios
-        .delete(`https://auto-parts-rm.herokuapp.com/order/${showConfirm.id}`)
+        .delete(`https://manufacturer-auto-parts.onrender.com/order/${showConfirm.id}`)
           .then((res) => {
               if (res.data) {
-                  axios.get(`https://auto-parts-rm.herokuapp.com/orders/${email}`).then(res => {
+                  axios.get(`https://manufacturer-auto-parts.onrender.com/orders/${email}`).then(res => {
                       console.log(res.data, "from modal")
                       return setMyOrders(res.data)
                   })

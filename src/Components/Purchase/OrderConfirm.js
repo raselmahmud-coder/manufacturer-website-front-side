@@ -18,7 +18,7 @@ const OrderConfirm = ({ count, tool, setShowModal }) => {
     const phone = e.target.phone.value;
     axios({
       method: "post",
-      url: `https://auto-parts-rm.herokuapp.com/order`,
+      url: `https://manufacturer-auto-parts.onrender.com/order`,
       data: {
         productId: _id,
         productName: name,
@@ -35,7 +35,7 @@ const OrderConfirm = ({ count, tool, setShowModal }) => {
       if (res.data.acknowledged) {
         const afterOrderQuantity = quantity - count;
         axios
-          .put(`https://auto-parts-rm.herokuapp.com/tool/${_id}`, {
+          .put(`https://manufacturer-auto-parts.onrender.com/tool/${_id}`, {
             quantity: afterOrderQuantity,
           })
           .then((res) => {

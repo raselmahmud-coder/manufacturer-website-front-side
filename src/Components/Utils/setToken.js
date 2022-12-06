@@ -1,17 +1,10 @@
-import { useEffect, useState } from "react";
-
-const UseToken = ({user}) => {
-
-  // const [token, setToken] = useState("");
-  
+const setToken = ({user}) => {
   const email = user?.user?.email;
   const name = user?.user?.displayName;
-  // const currentUser = { email: email, name:name };
-  
   if (email && name) {
       console.log("inside token",user.user.email);
       console.log("inside token-----------",user.user.displayName);
-      fetch(`https://auto-parts-rm.herokuapp.com/users/${email}`, {
+      fetch(`https://manufacturer-auto-parts.onrender.com/users/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -31,4 +24,4 @@ const UseToken = ({user}) => {
   
 };
 
-export default UseToken;
+export default setToken;

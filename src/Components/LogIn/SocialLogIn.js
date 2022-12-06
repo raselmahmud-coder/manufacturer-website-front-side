@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SpinnerCircular } from "spinners-react";
 import { auth } from "../../firebase.init";
-import UseToken from "../Shared/Hooks/UseToken";
+import setToken from "../Utils/setToken";
 
 const SocialLogIn = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -14,7 +14,7 @@ const SocialLogIn = () => {
   const from = location.state?.from?.pathname || "/";
   useEffect(() => {
     if (user) {
-      <UseToken user={user} />;
+      setToken(user);
       navigate(from, { replace: true });
     }
   }, [from, navigate, user]);
@@ -46,8 +46,7 @@ const SocialLogIn = () => {
     <>
       <button
         onClick={handleGoogle}
-        className="py-3 rounded-md uppercase border-gray-400 border-2 w-full"
-      >
+        className="py-3 rounded-md uppercase border-gray-400 border-2 w-full">
         continue with google
       </button>
     </>

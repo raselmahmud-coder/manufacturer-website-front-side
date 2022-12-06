@@ -15,7 +15,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("tools", () =>
-    fetch(`https://auto-parts-rm.herokuapp.com/tools`, {
+    fetch(`https://manufacturer-auto-parts.onrender.com/tools`, {
       /*  method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -38,7 +38,7 @@ const ManageProducts = () => {
   const handleEditTool = (_id) => {
     // setLoader(true);
     const payment = { paymentStatus: "shipped" };
-    fetch(`https://auto-parts-rm.herokuapp.com/order/${_id}`, {
+    fetch(`https://manufacturer-auto-parts.onrender.com/order/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
